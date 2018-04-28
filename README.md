@@ -27,3 +27,5 @@ NODE_ENV=development yarn start
 
 team (only add your own name):
 - Cole Albon https://keybase.io/colealbon
+- Matti Cone https://keybase.io/matticone
+- Anthony Casson https://keybase.io/ascasson

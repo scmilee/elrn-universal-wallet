@@ -25,7 +25,7 @@ NODE_ENV=development yarn start
 # wallet todo list
 
 ## project management
-- ~~task: convert "Git Flow.pdf" document to markdown
+- ~~task: convert "Git Flow.pdf" document to markdown~~
 - spike: how to get our app to show up in blockstack ecosystem
   - probably must submit a PR to the main blockstack codebase
 - ~~task: create todo.md~~
@@ -33,7 +33,7 @@ NODE_ENV=development yarn start
 
 ## user interface (react/redux)
 - set up example wallet based on lib-react-component-wallet
-- ~~install shapeshift API
+- ~~install shapeshift API~~
 - spike: redux layout (set the course)
   - select a book to provide on project layout (Developing a Redux Edge)
   - refactor app layout based on selected book / 

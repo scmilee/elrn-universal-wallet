@@ -4,17 +4,26 @@ import { connect } from 'react-redux'
 
 import Authenticated from '../components/Authenticated/Authenticated'
 import Public from '../components/Public/Public'
-//import Sidebar from '../components/Sidebar/Sidebar'
-import Header from '../components/Header/Header' //for now, copied from sidebar
+import Navigator from '../components/Navigator/Navigator'
 
 import HandleLogin from '../pages/Login/HandleLogin'
 import Home from '../pages/Home/Home'
 import Login from '../pages/Login/Login'
 import Logout from '../pages/Logout/Logout'
 import Secret from '../pages/Secret/Secret'
+import Wallet from '../pages/Wallet/Wallet'
 
 const mapStateToProps = (state) => {
   return state
+}
+
+const authenticatedPaths = () => {
+  return (
+    <div>
+      <Authenticated path='/' exact name='home' component={Secret} />
+      <Authenticated path='/wallet' exact name='home' component={Wallet} />
+    </div>
+  )
 }
 
 const App = ({user, ...rest}) => {
@@ -22,12 +31,12 @@ const App = ({user, ...rest}) => {
     <main>
       <div className='columns is-gapless'>
         <div className='column is-one-quarter'>
-          <Header />
+          <Navigator />
         </div>
         <div className='column'>
           {
             (user.isAuthenticated)
-            ? <Authenticated path='/' exact name='home' component={Secret} />
+            ? authenticatedPaths()
             : <Public path='/' exact name='home' component={Home} />
           }
           <Route path='/logout' exact component={Logout} />

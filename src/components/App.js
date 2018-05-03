@@ -5,6 +5,8 @@ import { connect, Provider } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Route, Switch } from 'react-router'
 
+import Sidebar from './SideBar/Sidebar'
+
 const ConnectedSwitch = connect(state => ({
   location: state.location
 }))(Switch)

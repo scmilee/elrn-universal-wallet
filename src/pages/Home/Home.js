@@ -7,11 +7,11 @@ const Home = () => {
         <div className='hero-body'>
           <div className='container'>
             <h1 className='title'>
-            ELRN Wallet Demo
-          </h1>
+                ELRN Wallet Demo
+            </h1>
             <h2 className='subtitle'>
-            read your transcript on IPFS, check cryptocurrency reward status
-          </h2>
+                read your transcript on IPFS, check cryptocurrency reward status
+            </h2>
           </div>
         </div>
       </section>

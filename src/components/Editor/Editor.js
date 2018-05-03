@@ -55,6 +55,8 @@ const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSa
   };
   return (
     <section>
+      <label className='label'>BlockStack Short Haired File Retreiver</label>
+      <br />
       <div className='field'>
         <label className='label'>File Path</label>
         <div className='control'>
@@ -76,6 +78,7 @@ const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSa
           <button className='button' onClick={() => handleGetFileButton(editor.path)}>Get File</button>
         </div>
       </div>
+      <p> You can save your own custom File/content by using the save button</p>
       <div>
       <br></br>
         <JSONTree
@@ -85,8 +88,6 @@ const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSa
           shouldExpandNode={() => false}
         />
         </div>
-      <p>Save will save the file contents to the file path provided</p>
-      <p>Get file will attempt to get the file contents of the file name in the 'File Path' input</p>
     </section>
   )
 }

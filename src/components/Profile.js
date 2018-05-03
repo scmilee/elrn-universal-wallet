@@ -43,7 +43,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const Profile = ({ handleLookupProfileButton }) => {
   return (
-    <button onClick={() => handleLookupProfileButton()}>heyo!</button>
+    <div>Placeholder for User Profile</div>
+    // <button onClick={() => handleLookupProfileButton()}>heyo!</button>
   )
 }
 

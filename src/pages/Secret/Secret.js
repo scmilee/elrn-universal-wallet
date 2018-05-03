@@ -28,12 +28,15 @@ const Secret = ({user, file, getFile, putFile, ...rest}) => {
   return (
     <div>
       <h2>{JSON.stringify(user.profile.profile.name)}</h2>
-      <p>This route is only accessible while logged in!</p>
+      <Profile />
       <hr />
+      <hr />
+      <p> Step 1: Click "Generate Key Pair". This will... err... uhh... generate a Private / Public Keypair </p>
+      <LearnerPublicKeyForm />
       <hr />
       <Editor />
-      <LearnerPublicKeyForm />
-      <Profile />
+
+
     </div>
   )
 }

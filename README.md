@@ -2,7 +2,7 @@
 
 ## installation:
 ~~~~
-git clone   keybase://team/elrn_wallet/elrn-universal-wallet
+git clone keybase://team/elrn_wallet/elrn-universal-wallet
 cd elrn-universal-wallet
 yarn install
 NODE_ENV=production yarn start
@@ -10,7 +10,7 @@ NODE_ENV=production yarn start
 
 ## developers:
 ~~~~
-git clone   keybase://team/elrn_wallet/elrn-universal-wallet
+git clone keybase://team/elrn_wallet/elrn-universal-wallet
 cd elrn-universal-wallet
 git checkout feature/install-react-router
 yarn install
@@ -27,7 +27,7 @@ NODE_ENV=development yarn start
 ## project management
 - ~~task: convert "Git Flow.pdf" document to markdown~~
 - spike: how to get our app to show up in blockstack ecosystem
-  - probably must submit a PR to the main blockstack codebase
+ - probably must submit a PR to the main blockstack codebase
 - ~~task: create todo.md~~
 - ~~task: add "Git Flow.pdf" document to team share~~
 
@@ -35,16 +35,16 @@ NODE_ENV=development yarn start
 - set up example wallet based on lib-react-component-wallet
 - ~~install shapeshift API~~
 - spike: redux layout (set the course)
-  - select a book to provide on project layout (Developing a Redux Edge)
-  - refactor app layout based on selected book / 
+ - select a book to provide on project layout (Developing a Redux Edge)
+ - refactor app layout based on selected book /
 - task: display wallet amount
 - task: send money
 - task: send custom token
 
 ## library (javascript)
 - task: lib-client-elrn-wallet (initializes,exports blockstack/shapeshift)
-- task: display wallet amount
-- task: send money
+- task: display wallet amount (table below)
+- task: send money (table below)
 - task: send custom token
 - task: qr code reader
 - task: display qr code?
@@ -54,6 +54,71 @@ NODE_ENV=development yarn start
 - task: install numeric keypad
 - ~~task: install blockstack~~
 - ~~task: install react/redux~~
+
+| | create key | display balance | send |
+|----------|:---------:|:--------:|:---------:|
+| Bitcoin|coininfo | x | x |
+| Blackcoin | coininfo | x | x |
+| Bitcoin Gold | coininfo | x | x |
+| Dash | coininfo | x | x |
+| Decred | coininfo | x | x |
+| Digibyte | coininfo | x | x |
+| Dogecoin | coininfo | x | x |
+| Litecoin | coininfo | x | x |
+| Monacoin | coininfo | x | x |
+| Nubits | coininfo | x | x |
+| Namecoin | coininfo | x | x |
+| Peercoin | coininfo | x | x |
+| Qtum | coininfo | x | x |
+| Reddcoin | coininfo | x | x |
+| Vertcoin | coininfo | x | x |
+| Zcash | coininfo | x | x |
+| FirstBlood | x | x | x |
+| Aragon | x | x | x |
+| Bancor | x | x | x |
+| Bitcoin Cash | x | x | x |
+| Bitcoin Gold | x | x | x |
+| Civic | x | x | x |
+| Clams | x | x | x |
+| district0x | x | x | x |
+| Ether | x | x | x |
+| Ether Classic | x | x | x |
+| Factoids | x | x | x |
+| GameCredits | x | x | x |
+| Gnosis | x | x | x |
+| Golem | x | x | x |
+| Matchpool | x | x | x |
+| Komodo | x | x | x |
+| LBRY Credits | x | x | x |
+| Lisk | x | x | x |
+| Maidsafe | x | x | x |
+| Omni | x | x | x |
+| Neo | x | x | x |
+| NEM | x | x | x |
+| Numeraire | x | x | x |
+| Novacoin | x | x | x |
+| Nxt | x | x | x |
+| OmiseGo | x | x | x |
+| Potcoin | x | x | x |
+| Augur | x | x | x |
+| RCN | x | x | x |
+| iExec | x | x | x |
+| Salt | x | x | x |
+| Siacoin | x | x | x |
+| Status | x | x | x |
+| Storj | x | x | x |
+| Startcoin | x | x | x |
+| Steem | x | x | x |
+| Swarm City | x | x | x |
+| WeTrust | x | x | x |
+| Tether | x | x | x |
+| Voxels | x | x | x |
+| Vericoin | x | x | x |
+| Wings | x | x | x |
+| Monero | x | x | x |
+| Ripple | x | x | x |
+| 0x | x | x | x |
+
 
 ## todo map key
 - proposed

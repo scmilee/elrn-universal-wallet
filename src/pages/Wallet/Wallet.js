@@ -18,11 +18,7 @@ const mapDispatchToProps = (dispatch, nextProps) => {
 const Wallet = ({user, file, getFile, putFile, ...rest}) => {
   return (
     <div>
-      <h2>{JSON.stringify(user.profile.profile.name)}</h2>
-      <p>Wallet List view</p>
-      <hr />
-      <hr />
-      <Profile />
+      <h2>logged in as:&nbsp;{JSON.stringify(user.profile.profile.name)}</h2>
     </div>
   )
 }

@@ -42,7 +42,7 @@ NODE_ENV=development yarn start
 - task: send custom token
 
 ## library (javascript)
-- task: lib-client-elrn-wallet (initializes,exports blockstack/shapeshift)
+- ~~task: lib-client-elrn-wallet (initializes,exports blockstack/shapeshift)~~
 - task: display wallet amount (table below)
 - task: send money (table below)
 - task: send custom token

@@ -7,10 +7,10 @@ const Home = () => {
         <div className='hero-body'>
           <div className='container'>
             <h1 className='title'>
-                ELRN Wallet Demo
+                ELRN Universal Wallet
             </h1>
             <h2 className='subtitle'>
-                read your transcript on IPFS, check cryptocurrency reward status
+                check your balance, shapeshift your stash
             </h2>
           </div>
         </div>

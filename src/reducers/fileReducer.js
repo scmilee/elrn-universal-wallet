@@ -15,7 +15,7 @@ const initialState = {
   error: null
 }
 
-export const fileReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_FILE_ERROR:
       return { ...state, isFetching: false, error: action.payload }

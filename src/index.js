@@ -7,14 +7,19 @@ import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-r
 import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-import userReducer from './reducers/userReducer'
 import { fetchUserData } from './actions/userActions'
-import { fileReducer } from './reducers/fileReducer'
+
+import userReducer from    './reducers/userReducer'
+import fileReducer from    './reducers/fileReducer'
+import walletReducer from  './reducers/walletReducer'
 import learnerReducer from './reducers/learnerReducer'
-import editor from './reducers/editor'
+import editorReducer from  './reducers/editorReducer'
+
+import App from            './layouts/App'
+
 import './index.css'
 import 'bulma/css/bulma.css'
-import App from './layouts/App'
+
 import registerServiceWorker from './registerServiceWorker'
 
 // Setup for react-router
@@ -24,11 +29,12 @@ const middleware = routerMiddleware(history)
 // Setup for redux
 const store = createStore(
   combineReducers({
+    wallet: walletReducer,
     learner: learnerReducer,
-    editor: editor,
-    file: fileReducer,
+    editor: editorReducer,
     user: userReducer,
-    router: routerReducer
+    router: routerReducer,
+    file: fileReducer,
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(middleware, createLogger(), thunkMiddleware)

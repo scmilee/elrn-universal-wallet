@@ -15,7 +15,6 @@ class LearnerPublicKeyForm extends Component {
         evt.preventDefault();
         const publicKey = this.props.keypair.publicKey
         const privateKey = this.props.keypair.privateKey
-        alert(JSON.stringify(this.props.keypair.publicKey))
         this.props.putBlockstackFile('learnerPublicKey', publicKey, {encrypt: false});
         this.props.putBlockstackFile('learnerPrivateKey', privateKey, {encrypt: true});
         console.log(privateKey);
@@ -65,43 +64,16 @@ class LearnerPublicKeyForm extends Component {
          const privateKey = (keypair ? keypair.privateKey : '')
          return (
             <div>
-            <button onClick={() => this.handleGenerateKeypairButton()}>GenerateKeypair</button>
-            <br />
-            <div className="submitInformation">
-              {
-                (keypair)
-                ?
-                this.keypairSubmit(publicKey, privateKey)
-                : <p> Step 2: Perform Step 1 </p>
-              }
-            </div>
-
-
-
-            {/* <textarea
-                id="publicKey"
-                rows="2"
-                cols="70"
-                onChange={this.handleInputChange}
-                placeholder={publicKey}
-                >
-            </textarea>
-            <br />
-            <textarea
-                id="private_key"
-                rows="2"
-                cols="70"
-                onChange={this.handleInputChange}
-                placeholder={privateKey}
-                >
-            </textarea>
-            <form onSubmit={this.handleSubmit} id="learner_public_key_form" >
-                <input id="learner_public_key_form_input"
-                    type="submit"
-                    form="learner_public_key_form"
-                / >
-            </form> */}
-
+              <button onClick={() => this.handleGenerateKeypairButton()}>GenerateKeypair</button>
+              <br />
+              <div className="submitInformation">
+                {
+                  (keypair)
+                  ?
+                  this.keypairSubmit(publicKey, privateKey)
+                  : <br></br>
+                }
+              </div>
             </div>
         );
     }

@@ -55,7 +55,7 @@ const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSa
   };
   return (
     <section>
-      <label className='label'>BlockStack Short Haired File Retreiver</label>
+      <label className='label'>BlockStack File Retreiver</label>
       <br />
       <div className='field'>
         <label className='label'>File Path</label>

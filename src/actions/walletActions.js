@@ -1,32 +1,28 @@
 import Elrn from 'lib-client-elrn-wallet'
-const coinInfo = require('coininfo')
 
-export const GENERATE_WALLET_ERROR = 'GENERATE_WALLET_ERROR'
-export const GENERATE_WALLET_REQUEST = 'GENERATE_WALLET_REQUEST'
-export const GENERATE_WALLET_SUCCESS = 'GENERATE_WALLET_SUCCESS'
+export const GENERATE_WALLET_SEED_ERROR = 'GENERATE_WALLET_SEED_ERROR'
+export const GENERATE_WALLET_SEED_REQUEST = 'GENERATE_WALLET_SEED_REQUEST'
+export const GENERATE_WALLET_SEED_SUCCESS = 'GENERATE_WALLET_SEED_SUCCESS'
 
-export const generateWallet = () => {
+export const generateWalletSeed = () => {
   return (dispatch) => {
-    dispatch({ type: GENERATE_WALLET_REQUEST })
+    dispatch({ type: GENERATE_WALLET_SEED_REQUEST })
     try {      
       const config = {};
       const elrnClient = new Elrn(config)
-      const coin = 'blackcoin';
-      var cinfo = coinInfo(coin).versions;
-      let wallet = {};
-      elrnClient.createKeypair(cinfo)
-      .then((wallet) => {
+      elrnClient.createSeed()
+      .then((walletSeed) => {
         dispatch({
-            type: GENERATE_WALLET_SUCCESS,
+            type: GENERATE_WALLET_SEED_SUCCESS,
             payload: {
-                wallet: wallet,
+                wallet: walletSeed
             }
         })
       })
 
     } catch(error) {
         dispatch({
-          type: GENERATE_WALLET_ERROR,
+          type: GENERATE_WALLET_SEED_ERROR,
           payload: error
          })
     }

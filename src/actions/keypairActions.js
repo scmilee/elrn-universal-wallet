@@ -25,9 +25,9 @@ export const generateKeypair = () => {
       })
     } catch(error) {
         dispatch({
-          type: GENERATE_KEYPAIR_ERROR,
-          payload: error
-         })
+            type: GENERATE_KEYPAIR_ERROR,
+            payload: error
+        })
     }
   }
 }

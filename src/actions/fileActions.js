@@ -33,7 +33,6 @@ export const getBlockstackFile = (path, decrypt = false) => {
 export const putBlockstackFile = (path, content, encrypt = false) => {
   return (dispatch) => {
     dispatch({ type: PUT_FILE_REQUEST })
-
     return blockstack.putFile(path, content, encrypt)
       .then(
         res => dispatch({

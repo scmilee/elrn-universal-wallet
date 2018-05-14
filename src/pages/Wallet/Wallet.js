@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Profile from '../../components/Profile.js'
+import WalletSeed from '../../components/WalletSeed'
 
-const mapStateToProps = ({file, user}) => {
+
+const mapStateToProps = ({wallet}) => {
   return {
-    file,
-    user
+    wallet
   }
 }
 
@@ -15,14 +15,12 @@ const mapDispatchToProps = (dispatch, nextProps) => {
   }
 }
 
-const Wallet = ({user, file, getFile, putFile, ...rest}) => {
+const Wallet = ({wallet, user, file, getFile, putFile, ...rest}) => {
   return (
     <div>
-      <h2>logged in as:&nbsp;{JSON.stringify(user.profile.profile.name)}</h2>
+        <WalletSeed></WalletSeed>
     </div>
   )
 }
 
-const WalletContainer = connect(mapStateToProps, mapDispatchToProps)(Wallet)
-
-export default WalletContainer
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet)

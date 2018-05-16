@@ -1,5 +1,34 @@
 import Elrn from 'lib-client-elrn-wallet'
 
+export const MNEMONIC_TO_SEED_ERROR = 'MNEMONIC_TO_SEED_ERROR'
+export const MNEMONIC_TO_SEED_REQUEST = 'MNEMONIC_TO_SEED_REQUEST'
+export const MNEMONIC_TO_SEED_SUCCESS = 'MNEMONIC_TO_SEED_SUCCESS'
+
+export const mnemonicToSeed = (mnemonic) => {
+  return (dispatch) => {
+    dispatch({ type: MNEMONIC_TO_SEED_REQUEST })
+    try {
+      const config = {};
+      const elrnClient = new Elrn(config)
+      elrnClient.mnemonicToSeed(mnemonic)
+      .then((seed) => {
+        dispatch({
+            type: MNEMONIC_TO_SEED_SUCCESS,
+            payload: {
+                seed: seed
+            }
+        })
+      })
+
+    } catch(error) {
+        dispatch({
+          type: MNEMONIC_TO_SEED_ERROR,
+          payload: error
+         })
+    }
+  }
+}
+
 export const SEED_TO_MNEMONIC_ERROR = 'SEED_TO_MNEMONIC_ERROR'
 export const SEED_TO_MNEMONIC_REQUEST = 'SEED_TO_MNEMONIC_REQUEST'
 export const SEED_TO_MNEMONIC_SUCCESS = 'SEED_TO_MNEMONIC_SUCCESS'

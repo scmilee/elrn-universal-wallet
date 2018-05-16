@@ -4,7 +4,7 @@ import { generateWalletSeed } from '../actions/walletActions'
 
 const mapStateToProps = ({wallet}) => {
   return {
-    wallet
+    seed : wallet.seed
   }
 }
 
@@ -16,11 +16,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const WalletSeed = ({ wallet, handleGenerateWalletSeedButton }) => {
+const WalletSeed = ({ seed, handleGenerateWalletSeedButton }) => {
   return (
     <div>
     <button onClick={() => handleGenerateWalletSeedButton()}>Generate Wallet Seed</button>
-    <h2>wallet seed:&nbsp;{JSON.stringify(wallet  || {})}</h2>
+    <h2>wallet seed:&nbsp;{JSON.stringify(seed  || {})}</h2>
     </div>
   )
 }

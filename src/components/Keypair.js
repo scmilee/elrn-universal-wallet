@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { generateKeypair } from '../actions/keypairActions'
-//import { processLearnerPublicKey } from '../reducers/learnerReducer.js'
+
+const mapStateToProps = () => ({}))
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -17,6 +18,4 @@ const Keypair = ({ handleGenerateKeypairButton }) => {
   )
 }
 
-const KeypairContainer = connect((state) => ({}), mapDispatchToProps)(Keypair)
-
-export default KeypairContainer
+export default connect(mapStateToProps,mapDispatchToProps)(Keypair);

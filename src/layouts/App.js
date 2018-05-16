@@ -13,9 +13,9 @@ import Logout from '../pages/Logout/Logout'
 import Secret from '../pages/Secret/Secret'
 import Wallet from '../pages/Wallet/Wallet'
 
-const mapStateToProps = (state) => {
-  return state
-}
+const mapStateToProps = (state) => state
+
+const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const authenticatedPaths = () => {
   return (
@@ -48,6 +48,7 @@ const App = ({user, ...rest}) => {
   )
 }
 
-const AppContainer = connect(mapStateToProps)(App)
-
-export default AppContainer
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(App)

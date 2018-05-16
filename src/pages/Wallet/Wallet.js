@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import WalletSeed from '../../components/WalletSeed'
-
+import MnemonicForm from '../../components/MnemonicForm'
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -19,6 +19,7 @@ const Wallet = ({wallet, user, file, getFile, putFile, ...rest}) => {
   return (
     <div>
         <WalletSeed></WalletSeed>
+        <MnemonicForm></MnemonicForm>
     </div>
   )
 }

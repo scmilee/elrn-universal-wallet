@@ -36,7 +36,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "keypair": "^1.0.1",
-    "lib-client-elrn-wallet": "0.0.2",
+    "lib-client-elrn-wallet": "0.0.4",
     "node-forge": "^0.7.5",
     "node-rsa": "^0.4.2",
     "object-assign": "4.1.1",

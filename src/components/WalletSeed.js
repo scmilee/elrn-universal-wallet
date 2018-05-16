@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { generateWalletSeed } from '../actions/walletActions'
-//import { processLearnerPublicKey } from '../reducers/learnerReducer.js'
 
 const mapStateToProps = ({wallet}) => {
   return {

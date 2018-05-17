@@ -20,7 +20,7 @@ const WalletSeed = ({ seed, handleGenerateWalletSeedButton }) => {
   return (
     <div>
     <button onClick={() => handleGenerateWalletSeedButton()}>Generate Wallet Seed</button>
-    <h2>wallet seed:&nbsp;{JSON.stringify(seed  || {})}</h2>
+    <h2>wallet seed:&nbsp;{JSON.stringify(seed)}</h2>
     </div>
   )
 }

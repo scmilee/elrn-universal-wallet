@@ -4,14 +4,17 @@ import {
   GENERATE_WALLET_SEED_SUCCESS,
   SEED_TO_MNEMONIC_ERROR,
   SEED_TO_MNEMONIC_REQUEST,
-  SEED_TO_MNEMONIC_SUCCESS
+  SEED_TO_MNEMONIC_SUCCESS,
+  MNEMONIC_TO_SEED_ERROR,
+  MNEMONIC_TO_SEED_REQUEST,
+  MNEMONIC_TO_SEED_SUCCESS
 } from '../actions/walletActions'
 
 const initialState = {
   isCreating: false,
   isCreated: false,
   seed: {},
-  mnemonic: {},
+  mnemonic: '',
   error: null
 }
 
@@ -28,6 +31,12 @@ export default (state = initialState, action) => {
     case SEED_TO_MNEMONIC_REQUEST:
         return { ...state, isCreating: true }
     case SEED_TO_MNEMONIC_SUCCESS:
+        return { ...state, isCreating: false, ...action.payload }
+    case MNEMONIC_TO_SEED_ERROR:
+        return { ...state, isCreating: false, error: action.payload }
+    case MNEMONIC_TO_SEED_REQUEST:
+        return { ...state, isCreating: true }
+    case MNEMONIC_TO_SEED_SUCCESS:
         return { ...state, isCreating: false, ...action.payload }
     default:
       return state

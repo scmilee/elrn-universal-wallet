@@ -6,7 +6,12 @@ export const MNEMONIC_TO_SEED_SUCCESS = 'MNEMONIC_TO_SEED_SUCCESS'
 
 export const mnemonicToSeed = (mnemonic) => {
   return (dispatch) => {
-    dispatch({ type: MNEMONIC_TO_SEED_REQUEST })
+    dispatch({
+        type: MNEMONIC_TO_SEED_REQUEST,
+        payload: {
+            mnemonic: mnemonic
+        }
+    })
     try {
       const config = {};
       const elrnClient = new Elrn(config)

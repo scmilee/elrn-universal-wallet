@@ -1,18 +1,49 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { connect, Provider } from 'react-redux'
+import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import { Link } from 'react-router-dom'
-import { Route, Switch } from 'react-router'
+import Authenticated from '../components/Authenticated/Authenticated'
+import Public from '../components/Public/Public'
+import Navigator from '../components/Navigator/Navigator'
 
-import Sidebar from './SideBar/Sidebar'
+import HandleLogin from '../pages/Login/HandleLogin'
+import Home from '../pages/Home/Home'
+import Login from './Login'
+import Logout from '../pages/Logout/Logout'
+import Secret from '../pages/Secret/Secret'
+import Wallet from '../pages/Wallet/Wallet'
 
-const ConnectedSwitch = connect(state => ({
-  location: state.location
-}))(Switch)
+const mapStateToProps = (state) => state
 
-export default () => (
-  <ConnectedSwitch>
-    <Route exact path="/" component={() => (<h1>Home <Link to="/about">About</Link></h1>)} />
-  </ConnectedSwitch>
-)
+const mapDispatchToProps = (dispatch, ownProps) => ({})
+
+const authenticatedPaths = () => {
+  return (
+      <div className='columns is-gapless'>
+            <div className='column is-one-quarter'>
+              <Navigator />
+            </div>
+            <div className='column'>
+              <Authenticated path='/' exact name='home' component={Secret} />
+              <Authenticated path='/wallet' exact name='home' component={Wallet} />
+            </div>
+      </div>
+  )
+}
+
+const App = ({user, ...rest}) => {
+  return (
+    <main>
+          {
+            (user.isAuthenticated)
+            ? authenticatedPaths()
+            : <Public path='/' exact name='home' component={Home} />
+          }
+          <Route path='/logout' exact component={Logout} />
+          <Public path='/login' exact name='login' component={Login} />
+          <Public path='/handle-login' name='handle-login' component={HandleLogin} />
+    </main>
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

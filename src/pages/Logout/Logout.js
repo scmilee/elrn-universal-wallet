@@ -1,6 +1,7 @@
 import React from 'react'
 import { userLogout } from '../../actions/userActions'
 import { connect } from 'react-redux'
+import Home from '../Home/Home'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -17,17 +18,12 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Logout = ({user, handleLogout, ...rest}) => {
-  // Only attept `signUserOut` if logged in, since this route is accessible
-  // when not logged in
   if (user.isAuthenticated) {
     handleLogout()
   }
-
   return (
-    <h2>Signed Out</h2>
+      <Home></Home>
   )
 }
 
-const LogoutContainer = connect(mapStateToProps, mapDispatchToProps)(Logout)
-
-export default LogoutContainer
+export default connect(mapStateToProps, mapDispatchToProps)(Logout)

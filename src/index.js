@@ -15,18 +15,16 @@ import walletReducer from  './reducers/walletReducer'
 import learnerReducer from './reducers/learnerReducer'
 import editorReducer from  './reducers/editorReducer'
 
-import App from            './layouts/App'
+import App from            './components/App'
 
 import './index.css'
 import 'bulma/css/bulma.css'
 
 import registerServiceWorker from './registerServiceWorker'
 
-// Setup for react-router
 const history = createHistory()
 const middleware = routerMiddleware(history)
 
-// Setup for redux
 const store = createStore(
   combineReducers({
     wallet: walletReducer,
@@ -42,7 +40,6 @@ const store = createStore(
 
 store.dispatch(fetchUserData())
 
-// Initialize React application
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

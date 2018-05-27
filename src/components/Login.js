@@ -19,7 +19,6 @@ const mapDispatchToProps = (dispatch) => {
 const Login = ({user, onClick, ...rest}) => {
   return (
     <div className='Login'>
-      <h2>Login with Blockstack</h2>
       <button onClick={onClick}>Log In</button>
     </div>
   )

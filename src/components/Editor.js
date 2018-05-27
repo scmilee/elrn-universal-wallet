@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSaveButton, handleGetFileButton, user}) => {
+const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSaveButton, handleGetFileButton, user, ...rest}) => {
   const JSONtheme = {
       scheme: 'monokai',
       author: 'wimer hazenberg (http://www.monokai.nl)',

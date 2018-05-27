@@ -16,11 +16,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const WalletSeed = ({ seed, handleGenerateWalletSeedButton }) => {
+const WalletSeed = ({ seed, handleGenerateWalletSeedButton, ...rest }) => {
   return (
     <div>
     <button onClick={() => handleGenerateWalletSeedButton()}>Generate Wallet Seed</button>
-    <h2>hex seed:&nbsp;{(seed) ? seed.toString('hex') : ''}</h2>
+    <h2>hex seed:&nbsp;{(seed !== {}) ? seed.toString('hex') : ''}</h2>
     </div>
   )
 }

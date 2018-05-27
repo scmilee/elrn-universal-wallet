@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const Keypair = ({ handleGenerateKeypairButton }) => {
+const Keypair = ({ handleGenerateKeypairButton, ...rest }) => {
   return (
     <button onClick={() => handleGenerateKeypairButton()}>GenerateKeypair</button>
   )

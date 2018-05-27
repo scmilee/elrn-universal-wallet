@@ -28,6 +28,4 @@ const HandleLogin = ({user, handlePendingSignIn, ...rest}) => {
   )
 }
 
-const HandleLoginContainer = connect(mapStateToProps, mapDispatchToProps)(HandleLogin)
-
-export default HandleLoginContainer
+export default connect(mapStateToProps, mapDispatchToProps)(HandleLogin)

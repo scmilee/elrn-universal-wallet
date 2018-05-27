@@ -19,21 +19,21 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const authenticatedPaths = () => {
   return (
-    <div>
-      <Authenticated path='/' exact name='home' component={Secret} />
-      <Authenticated path='/wallet' exact name='home' component={Wallet} />
-    </div>
+      <div className='columns is-gapless'>
+            <div className='column is-one-quarter'>
+              <Navigator />
+            </div>
+            <div className='column'>
+              <Authenticated path='/' exact name='home' component={Secret} />
+              <Authenticated path='/wallet' exact name='home' component={Wallet} />
+            </div>
+      </div>
   )
 }
 
 const App = ({user, ...rest}) => {
   return (
     <main>
-      <div className='columns is-gapless'>
-        <div className='column is-one-quarter'>
-          <Navigator />
-        </div>
-        <div className='column'>
           {
             (user.isAuthenticated)
             ? authenticatedPaths()
@@ -42,13 +42,8 @@ const App = ({user, ...rest}) => {
           <Route path='/logout' exact component={Logout} />
           <Public path='/login' exact name='login' component={Login} />
           <Public path='/handle-login' name='handle-login' component={HandleLogin} />
-        </div>
-      </div>
     </main>
   )
 }
 
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

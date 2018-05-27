@@ -2,11 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { loginWithBlockstack } from '../actions/userActions'
 
-const mapStateToProps = ({user}) => {
-  return {
-    user
-  }
-}
+const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -16,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const Login = ({user, onClick, ...rest}) => {
+const Login = ({onClick, ...rest}) => {
   return (
     <div className='Login'>
       <button onClick={onClick}>Log In</button>

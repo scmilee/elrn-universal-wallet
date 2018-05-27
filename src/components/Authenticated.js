@@ -1,21 +1,22 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import * as blockstack from 'blockstack'
+import { connect } from 'react-redux'
 
-// Authenticated routes are only available when signed in with Blockstack
-const Authenticated = ({component, ...rest}) => {
-  // This will be stored in redux eventually
-  const isAuthenticated = blockstack.isUserSignedIn()
+const mapStateToProps = (state) => state
 
+const mapDispatchToProps = (dispatch, ownProps) => ({})
+
+const Authenticated = ({user, component, ...rest}) => {
   return (
     <Route
       {...rest}
       render={props => {
-        return isAuthenticated ? React.createElement(component, {...props})
-          : <Redirect to='/logout' />
+        return user.isAuthenticated ?
+          React.createElement(component, {...props}) :
+          <Redirect to='/logout' />
       }}
     />
   )
 }
 
-export default Authenticated
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticated)

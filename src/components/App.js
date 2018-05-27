@@ -1,11 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-
 import Authenticated from './Authenticated'
 import Public from './Public'
 import Navigator from './Navigator'
-
 import Secret from './Secret'
 import Wallet from './Wallet'
 import Profile from './Profile'
@@ -13,7 +11,6 @@ import HandleLogin from './HandleLogin'
 import Home from './Home'
 import Login from './Login'
 import Logout from './Logout'
-
 
 const mapStateToProps = (state) => state
 

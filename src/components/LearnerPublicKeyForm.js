@@ -81,5 +81,5 @@ class LearnerPublicKeyForm extends Component {
 
 export default connect(
     (state) => ({ keypair: state.learner.keypair }),
-    { updateLearnerPublicKey, putBlockstackFile, generateKeypair, }
+    { updateLearnerPublicKey, putBlockstackFile, generateKeypair}
 )(LearnerPublicKeyForm);

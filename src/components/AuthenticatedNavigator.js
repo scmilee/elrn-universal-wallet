@@ -1,7 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-const AuthenticatedNavigator = ({user}) => {
+const mapStateToProps = (state) => state
+
+const mapDispatchToProps = (dispatch, ownProps) => ({})
+
+const AuthenticatedNavigator = (location, ...rest) => {
   return (
     <div>
       <ul className='menu-list'>
@@ -15,4 +20,4 @@ const AuthenticatedNavigator = ({user}) => {
   )
 }
 
-export default AuthenticatedNavigator
+export default connect(mapStateToProps, mapDispatchToProps)(AuthenticatedNavigator)

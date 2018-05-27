@@ -3,11 +3,7 @@ import { userLogout } from '../actions/userActions'
 import { connect } from 'react-redux'
 import Home from './Home'
 
-const mapStateToProps = ({user}) => {
-  return {
-    user
-  }
-}
+const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch) => {
   return {

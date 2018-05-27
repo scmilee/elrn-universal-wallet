@@ -1,25 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
-import AuthenticatedNavigator from './AuthenticatedNavigator'
 import Login from './Login'
+import AuthenticatedNavigator from './AuthenticatedNavigator'
 
-const mapStateToProps = ({user}) => {
-  return {
-    user
-  }
-}
+const mapStateToProps = (state) => state
+
+const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const Navigator = ({user, ...rest}) => {
   return (
     <div>
       {
         (user.isAuthenticated)
-        ? <AuthenticatedNavigator user={user} {...rest} />
+        ? <AuthenticatedNavigator />
         : <Login />
       }
     </div>
   )
 }
 
-export default connect(mapStateToProps)(Navigator)
+export default connect(mapStateToProps, mapDispatchToProps)(Navigator)

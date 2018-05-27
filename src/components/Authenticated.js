@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Route, Redirect } from 'react-router-dom'
 import * as blockstack from 'blockstack'
 
@@ -17,10 +16,6 @@ const Authenticated = ({component, ...rest}) => {
       }}
     />
   )
-}
-
-Authenticated.propTypes = {
-  component: PropTypes.func.isRequired
 }
 
 export default Authenticated

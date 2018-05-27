@@ -1,8 +1,8 @@
 import React from 'react'
 import JSONTree from 'react-json-tree'
 import { connect } from 'react-redux'
-import { editorFileContentChange, editorFilePathChange } from '../../actions/editorActions'
-import { getBlockstackFile, putBlockstackFile } from '../../actions/fileActions'
+import { editorFileContentChange, editorFilePathChange } from '../actions/editorActions'
+import { getBlockstackFile, putBlockstackFile } from '../actions/fileActions'
 
 const mapStateToProps = ({editor, user}) => {
   return {

@@ -14,7 +14,6 @@ import Logout from '../pages/Logout/Logout'
 import Secret from '../pages/Secret/Secret'
 import Wallet from '../pages/Wallet/Wallet'
 
-
 const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})

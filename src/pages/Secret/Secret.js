@@ -2,21 +2,21 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import Editor from '../../components/Editor/Editor'
-
-const mapStateToProps = ({file, user}) => {
+const mapStateToProps = ({user}) => {
   return {
-    file,
     user
   }
 }
 
-const Secret = ({user, file, ...rest}) => {
+const Secret = ({user, ...rest}) => {
   return (
-    <div>
-      secret.js
-      <Editor />
-    </div>
+      <div>
+        {
+          (user.isAuthenticated)
+          ? `logged in`
+          : ''
+        }
+      </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import LearnerPublicKeyForm from './LearnerPublicKeyForm'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -58,6 +59,7 @@ const Profile = ({ user, handleLookupProfileButton , ...rest}) => {
   return (
     <div>
     profile.js
+    <LearnerPublicKeyForm />
     { /*<h2>logged in as:&nbsp;{JSON.stringify(user.profile.profile.name  || {})}</h2> */ }
     { /*<button onClick={() => handleLookupProfileButton(user)}>lookup profile</button> */ }
     </div>

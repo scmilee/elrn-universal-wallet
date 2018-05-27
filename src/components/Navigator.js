@@ -2,12 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import AuthenticatedNavigator from './AuthenticatedNavigator'
-import Login from '../Login'
+import Login from './Login'
 
-const mapStateToProps = ({user, router}) => {
+const mapStateToProps = ({user}) => {
   return {
-    user,
-    router
+    user
   }
 }
 
@@ -23,6 +22,4 @@ const Navigator = ({user, ...rest}) => {
   )
 }
 
-const NavigatorContainer = connect(mapStateToProps)(Navigator)
-
-export default NavigatorContainer
+export default connect(mapStateToProps)(Navigator)

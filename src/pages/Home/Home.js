@@ -1,7 +1,7 @@
 import React from 'react'
-import Profile from '../../components/Profile.js'
 import Login from '../../components/Login.js'
-const Home = () => {
+
+export default () => {
   return (
     <div className='section'>
       <section className='hero'>
@@ -17,5 +17,3 @@ const Home = () => {
     </div>
   )
 }
-
-export default Home

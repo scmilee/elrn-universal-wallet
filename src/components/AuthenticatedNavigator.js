@@ -9,7 +9,6 @@ const AuthenticatedNavigator = ({user}) => {
         <li><NavLink to='/wallet' activeClassName='is-active'>Wallet</NavLink></li>
         <li><NavLink to='/profile' activeClassName='is-active'>Profile</NavLink></li>
         <br />
-        <br />
         <li><NavLink to='/logout' activeClassName='is-active'>Logout</NavLink></li>
       </ul>
     </div>

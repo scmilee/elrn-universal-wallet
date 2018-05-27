@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import Authenticated from './Authenticated'
 import Public from './Public'
-import Navigator from '../components/Navigator/Navigator'
+import Navigator from './Navigator'
+import Profile from './Profile'
 
 import HandleLogin from '../pages/Login/HandleLogin'
 import Home from '../pages/Home/Home'
@@ -12,6 +13,7 @@ import Login from './Login'
 import Logout from '../pages/Logout/Logout'
 import Secret from '../pages/Secret/Secret'
 import Wallet from '../pages/Wallet/Wallet'
+
 
 const mapStateToProps = (state) => state
 
@@ -26,6 +28,7 @@ const authenticatedPaths = () => {
             <div className='column'>
               <Authenticated path='/' exact name='home' component={Secret} />
               <Authenticated path='/wallet' exact name='home' component={Wallet} />
+              <Authenticated path='/profile' exact name='home' component={Profile} />
             </div>
       </div>
   )

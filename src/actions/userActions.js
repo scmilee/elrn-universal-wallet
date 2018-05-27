@@ -20,7 +20,6 @@ export const fetchUserData = () => {
       }
     }
   } else if (blockstack.isSignInPending()) {
-    console.log(blockstack)
     return {
       type,
       payload: {
@@ -28,7 +27,6 @@ export const fetchUserData = () => {
       }
     }
   }
-
   return { type }
 }
 

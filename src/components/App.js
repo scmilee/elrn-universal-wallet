@@ -5,14 +5,15 @@ import { connect } from 'react-redux'
 import Authenticated from './Authenticated'
 import Public from './Public'
 import Navigator from './Navigator'
-import Profile from './Profile'
 
-import Secret from '../pages/Secret/Secret'
+import Secret from './Secret'
+import Wallet from './Wallet'
+import Profile from './Profile'
 import HandleLogin from './HandleLogin'
-import Home from '../pages/Home/Home'
+import Home from './Home'
 import Login from './Login'
-import Logout from '../pages/Logout/Logout'
-import Wallet from '../pages/Wallet/Wallet'
+import Logout from './Logout'
+
 
 const mapStateToProps = (state) => state
 

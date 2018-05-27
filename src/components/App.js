@@ -7,11 +7,11 @@ import Public from './Public'
 import Navigator from './Navigator'
 import Profile from './Profile'
 
-import HandleLogin from '../pages/Login/HandleLogin'
+import Secret from '../pages/Secret/Secret'
+import HandleLogin from './HandleLogin'
 import Home from '../pages/Home/Home'
 import Login from './Login'
 import Logout from '../pages/Logout/Logout'
-import Secret from '../pages/Secret/Secret'
 import Wallet from '../pages/Wallet/Wallet'
 
 const mapStateToProps = (state) => state

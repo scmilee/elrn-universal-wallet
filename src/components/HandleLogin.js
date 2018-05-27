@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { handleBlockstackLogin } from '../../actions/userActions'
+import { handleBlockstackLogin } from '../actions/userActions'
 
 const mapStateToProps = ({user}) => {
   return {

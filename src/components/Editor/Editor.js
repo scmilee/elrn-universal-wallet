@@ -28,6 +28,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     handleGetFileButton: (path) => {
       dispatch(getBlockstackFile(path))
+    },
+    getFile: (path, decrypt) => {
+      dispatch(getBlockstackFile(path, decrypt))
+    },
+    putFile: (path, content, encrypt) => {
+      dispatch(putBlockstackFile(path, content, encrypt))
     }
   }
 }

@@ -2,8 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Authenticated from '../components/Authenticated/Authenticated'
-import Public from '../components/Public/Public'
+import Authenticated from './Authenticated'
+import Public from './Public'
 import Navigator from '../components/Navigator/Navigator'
 
 import HandleLogin from '../pages/Login/HandleLogin'

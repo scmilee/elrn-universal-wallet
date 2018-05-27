@@ -8,9 +8,9 @@ const mapStateToProps = ({user}) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {  
+  return {
     /* commented until we move blockstack errata to lib-elrn-identity-js */
-    
+
     handleLookupProfileButton: (user) => {
       // let options = {
       //   username: user.profile.username,
@@ -20,21 +20,21 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       // }
       // blockstack.lookupProfile(user.profile.username)
       // .then((profileresponse) => alert(profileresponse))
-      
+
       // blockstack.getFile("walletSeed", options)
       // .then((fileContents) => {
       //    // get the contents of the file /message.txt
       //    // assert(fileContents === "hello world!")
       //    console.log(fileContents)
       // });
-      // 
+      //
       // blockstack.getFile("learnerPublicKey", options)
       // .then((fileContents) => {
       //    // get the contents of the file /message.txt
       //    // assert(fileContents === "hello world!")
       //    console.log(fileContents)
       // });
-      // 
+      //
       // blockstack.getUserAppFileUrl('learnerPublicKey',
       //   'colealbon.id',
       //   'http://localhost:3000',
@@ -57,12 +57,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const Profile = ({ user, handleLookupProfileButton , ...rest}) => {
   return (
     <div>
+    profile.js
     { /*<h2>logged in as:&nbsp;{JSON.stringify(user.profile.profile.name  || {})}</h2> */ }
     { /*<button onClick={() => handleLookupProfileButton(user)}>lookup profile</button> */ }
     </div>
   )
 }
 
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile)
-
-export default ProfileContainer
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import AuthenticatedNavigator from './AuthenticatedNavigator'
-import PublicNavigator from './PublicNavigator'
+import Login from '../Login'
 
 const mapStateToProps = ({user, router}) => {
   return {
@@ -17,7 +17,7 @@ const Navigator = ({user, ...rest}) => {
       {
         (user.isAuthenticated)
         ? <AuthenticatedNavigator user={user} {...rest} />
-        : <PublicNavigator {...rest} />
+        : <Login />
       }
     </div>
   )

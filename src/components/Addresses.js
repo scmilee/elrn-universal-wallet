@@ -44,11 +44,10 @@ const Addresses = ({address, mnemonic, handleGenerateWalletAddressButton}) => {
     for ( let asset in assetData){
         const assetName = assetData[asset].name;
         buttons.push(
-            <div>
+            <div key={assetName}>
                 <button
                     style={buttonStyle}
                     onClick={() => handleGenerateWalletAddressButton(assetData[asset])}
-                    key={assetName}
                 >
                     <img style={imgStyle} alt={assetName} src={assetData[asset].image}></img>
                     Generate {assetName} Address

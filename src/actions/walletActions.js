@@ -101,7 +101,8 @@ export const generateWalletAddress = (asset) => {
         try {
             const config = {};
             const elrnClient = new Elrn(config)
-            elrnClient.createSeed() // Change this to retrieve proper address for asset when libary is updated
+            elrnClient.createSeed()
+            .then((seed) => elrnClient.seedToAddress(seed, "m/44'/0'/0'/0/0", asset))
             .then((address) => {
                 dispatch({
                     type: GENERATE_WALLET_ADDRESS_SUCCESS,

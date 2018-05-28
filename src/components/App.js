@@ -7,6 +7,7 @@ import Navigator from './Navigator'
 import Secret from './Secret'
 import Wallet from './Wallet'
 import Profile from './Profile'
+import Networks from './Networks'
 import HandleLogin from './HandleLogin'
 import Home from './Home'
 import Login from './Login'
@@ -26,6 +27,7 @@ const authenticatedPaths = () => {
               <Authenticated path='/' exact name='home' component={Secret} />
               <Authenticated path='/wallet' exact name='home' component={Wallet} />
               <Authenticated path='/profile' exact name='home' component={Profile} />
+              <Authenticated path='/networks' exact name='home' component={Networks} />
             </div>
       </div>
   )

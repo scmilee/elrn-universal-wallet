@@ -3,18 +3,18 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = ({wallet}) => {
   return {
-    seed : wallet.seed
+    mnemonic: wallet.mnemonic
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const WalletSeed = ({ seed , ...rest }) => {
+const Mnemonic = ({ mnemonic, ...rest }) => {
   return (
     <div>
-    hex seed: {seed.toString('hex')}
+      {mnemonic}
     </div>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WalletSeed)
+export default connect(mapStateToProps, mapDispatchToProps)(Mnemonic)

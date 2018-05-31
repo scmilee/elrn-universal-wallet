@@ -1,21 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
+import GenerateWalletSeedButton from './GenerateWalletSeedButton'
 import WalletSeed from './WalletSeed'
 import MnemonicForm from './MnemonicForm'
+import Mnemonic from './Mnemonic'
 import Addresses from './Addresses'
 
-const mapStateToProps = (state) => state
-
-const mapDispatchToProps = (dispatch, ownProps) => ({})
-
-const Wallet = ({...rest}) => {
+export default () => {
     return (
         <div>
-            <WalletSeed></WalletSeed>
+            <GenerateWalletSeedButton></GenerateWalletSeedButton>
             <MnemonicForm></MnemonicForm>
             <Addresses></Addresses>
         </div>
     )
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Wallet)

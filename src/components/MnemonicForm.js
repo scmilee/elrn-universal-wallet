@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const MnemonicForm = ({ mnemonic, handleSubmit, handleInputChange, handleMnemonicSubmitButton, ...rest }) => {
+const MnemonicForm = ({ mnemonic, handleSubmit, handleInputChange, ...rest }) => {
   return (
     <div>
       <textarea
@@ -28,9 +28,6 @@ const MnemonicForm = ({ mnemonic, handleSubmit, handleInputChange, handleMnemoni
           placeholder={mnemonic}
           >
       </textarea>
-      <br>
-      </br>
-      {mnemonic}
     </div>
   )
 }

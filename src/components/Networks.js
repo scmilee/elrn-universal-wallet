@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { listNetworks } from '../actions/networkActions'
 import Network from './Network'
+import GenerateWalletSeedButton from './GenerateWalletSeedButton'
+import WalletSeed from './WalletSeed'
 
 const mapStateToProps = ({networks}) => {
-    console.log(networks);
     return {
         networks: networks.networks
      }
@@ -12,10 +12,13 @@ const mapStateToProps = ({networks}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const Networks = ({networks, onClick, ...rest}) => {
+const Networks = ({networks, ...rest}) => {
     return (
-        <div>
-            Networks.js
+      <div>
+        Networks.js
+       <GenerateWalletSeedButton></GenerateWalletSeedButton>
+       <WalletSeed></WalletSeed>
+            
             <br></br>
             {networks.map( network => 
             <Network 

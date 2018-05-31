@@ -2,19 +2,10 @@
 
 ## installation:
 ~~~~
-git clone keybase://team/elrn_wallet/elrn-universal-wallet
+git-ssb clone ssb://%+7TAThOHbrqWlh9Oi1zkeMyKVfMmXtkfVp0LYKJogOw=.sha256
 cd elrn-universal-wallet
-yarn install
-NODE_ENV=production yarn start
-~~~~
-
-## developers:
-~~~~
-git clone keybase://team/elrn_wallet/elrn-universal-wallet
-cd elrn-universal-wallet
-git checkout feature/install-react-router
-yarn install
-NODE_ENV=development yarn start
+npm install
+npm start
 ~~~~
 
 ## team (only add your own name):
@@ -34,9 +25,9 @@ NODE_ENV=development yarn start
 ## user interface (react/redux)
 - set up example wallet based on lib-react-component-wallet
 - ~~install shapeshift API~~
-- spike: redux layout (set the course)
- - select a book to provide on project layout (Developing a Redux Edge)
- - refactor app layout based on selected book /
+- ~~spike: redux layout (set the course)~~
+- select a book to provide on project layout (Developing a Redux Edge)
+- refactor app layout based on selected book /
 - task: display wallet amount
 - task: send money
 - task: send custom token

@@ -1,9 +1,9 @@
 {
-  "short_name": "Blockstack React Starter",
-  "name": "Blockstack React Starter",
+  "short_name": "ELRN",
+  "name": "ELRN Universal Wallet",
   "icons": [
     {
-      "src": "favicon.ico"
+      "src": "https://s3-us-west-2.amazonaws.com/elrnstaticimages/elrn.png"
     }
   ],
   "start_url": "localhost:3000",

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import SwipeWallet from './SwipeWallet'
 
 const mapStateToProps = (state) => state
 
@@ -12,7 +13,7 @@ const Secret = ({user, ...rest}) => {
         <br></br>
         {
           (user.isAuthenticated)
-          ? `logged in as: ${user.profile.profile.name || user.profile.username}`
+          ? <SwipeWallet></SwipeWallet>
           : ''
         }
       </div>

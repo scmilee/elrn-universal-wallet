@@ -16,7 +16,6 @@ import Logout from './Logout'
 const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
-
 const authenticatedPaths = () => {
   return (
       <div className='columns is-gapless'>

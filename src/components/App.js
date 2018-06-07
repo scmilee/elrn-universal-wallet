@@ -19,9 +19,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 const authenticatedPaths = () => {
   return (
       <div className='columns is-gapless'>
-            <div className='column is-one-quarter'>
-              <Navigator />
-            </div>
             <div className='column'>
               <Authenticated path='/' exact name='home' component={Secret} />
               <Authenticated path='/wallet' exact name='home' component={Wallet} />

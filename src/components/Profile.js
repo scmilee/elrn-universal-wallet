@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LearnerPublicKeyForm from './LearnerPublicKeyForm'
+import AssetListing from './AssetListing.js'
 import Editor from './Editor'
 
 const mapStateToProps = ({user}) => {
@@ -62,6 +63,7 @@ const Profile = ({ user, handleLookupProfileButton , ...rest}) => {
     profile.js
     <LearnerPublicKeyForm />
     <Editor />
+
     { /*<h2>logged in as:&nbsp;{JSON.stringify(user.profile.profile.name  || {})}</h2> */ }
     { /*<button onClick={() => handleLookupProfileButton(user)}>lookup profile</button> */ }
     </div>

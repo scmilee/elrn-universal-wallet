@@ -5,6 +5,7 @@ import WalletSeed from './WalletSeed'
 import MnemonicForm from './MnemonicForm'
 import Mnemonic from './Mnemonic'
 import Addresses from './Addresses'
+import AssetListing from './AssetListing.js'
 
 export default () => {
     return (
@@ -12,6 +13,7 @@ export default () => {
             <GenerateWalletSeedButton></GenerateWalletSeedButton>
             <MnemonicForm></MnemonicForm>
             <Addresses></Addresses>
+            <AssetListing />
         </div>
     )
 }

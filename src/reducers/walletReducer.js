@@ -10,7 +10,10 @@ import {
   MNEMONIC_TO_SEED_SUCCESS,
   GENERATE_WALLET_ADDRESS_ERROR,
   GENERATE_WALLET_ADDRESS_REQUEST,
-  GENERATE_WALLET_ADDRESS_SUCCESS
+  GENERATE_WALLET_ADDRESS_SUCCESS,
+  ASSET_VIEW_CONTENT_CHANGE_ERROR,
+  ASSET_VIEW_CONTENT_CHANGE_REQUEST,
+  ASSET_VIEW_CONTENT_CHANGE_SUCCESS
 } from '../actions/walletActions'
 
 const initialState = {
@@ -19,7 +22,8 @@ const initialState = {
   seed: {},
   mnemonic: '',
   error: null,
-  address: {}
+  address: {},
+  asset: ''
 }
 
 export default (state = initialState, action) => {
@@ -55,6 +59,12 @@ export default (state = initialState, action) => {
                     [action.payload.name]:action.payload.number
                 }
             }
+        case ASSET_VIEW_CONTENT_CHANGE_ERROR:
+            return { ...state, isCreating: false, error: action.payload }
+        case ASSET_VIEW_CONTENT_CHANGE_REQUEST:
+            return { ...state, isCreating: true }
+        case ASSET_VIEW_CONTENT_CHANGE_SUCCESS:
+          return { ...state, asset: action.payload.value}
         default:
             return state
     }

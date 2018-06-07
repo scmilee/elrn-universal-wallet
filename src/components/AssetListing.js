@@ -53,20 +53,13 @@ const individualAsset = {
     border: '5px solid black',
     borderRadius:'5px',
     position: 'relative',
-};
-const individualAssetBig = {
-    //TECH DEBT: move to some external css file
-    margin:'10px 20px',
-    height:'200px',
-    border: '5px solid black',
-    borderRadius:'3px',
-    position: 'relative',
+    textAlign:'left'
 };
 const imgStyle = {
     //TECH DEBT: move to some external css file
     height:'90%',
     position:'absolute',
-    margin: '2px'
+    margin: '2px',
 };
 const titleStyle = {
     //TECH DEBT: move to some external css file

@@ -10,8 +10,8 @@ import AssetListing from './AssetListing.js'
 export default () => {
     return (
         <div>
-            {/* <GenerateWalletSeedButton></GenerateWalletSeedButton>
-            <MnemonicForm></MnemonicForm> */}
+            <GenerateWalletSeedButton></GenerateWalletSeedButton>
+            <MnemonicForm></MnemonicForm>
             <Addresses></Addresses>
             <AssetListing />
         </div>

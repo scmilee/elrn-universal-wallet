@@ -53,7 +53,6 @@ const styles = {
 const createAsset = (coins) => {
     let coinListing =[]
     let previous = null;
-    console.log('ASSETDATA: ', coins);
     for( let asset in coins){
 
         if (previous){

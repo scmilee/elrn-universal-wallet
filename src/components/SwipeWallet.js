@@ -12,11 +12,6 @@ import assetData from './AssetData'
 const mapStateToProps = (state) => state
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 const styles = {
-  slideContainer: {
-    padding:'2vh AUTO',
-    height:'50vh',
-    width: '30vw'
-  },
   slide: {
     margin: '5vh 15vw',
     padding: '2vh 0',
@@ -34,10 +29,14 @@ const styles = {
   slide2: {
     padding: '1vh AUTO',
     backgroundColor: 'black',
-    // margin: '0 20vw',
   },
   slide3: {
     backgroundColor: 'yellow',
+  },
+  slideContainer: {
+    padding:'2vh AUTO',
+    height:'50vh',
+    width: '30vw'
   },
   imageLogo:{
     width: '10vw',

@@ -4,7 +4,7 @@ import SwipeableViews from 'react-swipeable-views'
 import { NavLink } from 'react-router-dom'
 import { virtualize } from 'react-swipeable-views-utils';
 import { mod } from 'react-swipeable-views-core';
-import AssetListing from './AssetListing.js';
+import AssetListing from './AssetListing.js'
 import Coins from './Coins.js';
 
 import assetData from './AssetData'
@@ -12,6 +12,11 @@ import assetData from './AssetData'
 const mapStateToProps = (state) => state
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 const styles = {
+  slideContainer: {
+    padding:'2vh AUTO',
+    height:'50vh',
+    width: '30vw'
+  },
   slide: {
     margin: '5vh 15vw',
     padding: '2vh 0',
@@ -27,11 +32,9 @@ const styles = {
     backgroundColor: 'red',
   },
   slide2: {
-    padding: '1vh 0',
-    width: '20vw',
-    height: '2vh',
+    padding: '1vh AUTO',
     backgroundColor: 'black',
-    margin: '0 20vw',
+    // margin: '0 20vw',
   },
   slide3: {
     backgroundColor: 'yellow',
@@ -48,23 +51,25 @@ const styles = {
   }
 };
 
-const createAsset = () => {
-    let assetListing =[]
+const createAsset = (coins) => {
+    let coinListing =[]
     let previous = null;
-    for( let asset in assetData){
+    console.log('ASSETDATA: ', coins);
+    for( let asset in coins){
+
         if (previous){
-          assetListing.push(
-            <div style={Object.assign({}, styles.slide2, {height:'10vh'})}>
-                <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={assetData[asset].image}/> -> <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={assetData[previous].image}/>
+          coinListing.push(
+            <div style={Object.assign({}, styles.slide2, {})}>
+                <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={coins[asset].image}/> -> <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={coins[previous].image}/>
             </div>
           )
         }
         previous = asset;
     }
-    return assetListing;
+    return coinListing;
 }
 
-const SwipeWallet = ({user, ...rest}) => {
+const SwipeWallet = ({user, shapeShift, ...rest}) => {
     return (
       <div>
       SwipeWallet.js
@@ -78,9 +83,9 @@ const SwipeWallet = ({user, ...rest}) => {
               <br/>
               <AssetListing/>
           </div>
-          <div style={Object.assign({}, styles.slide, {height:'AUTO'})}>Crypto Shift:
-            <SwipeableViews axis="y" resistance>
-              {createAsset()}
+          <div style={Object.assign({}, styles.slide)}>Crypto Shift:
+            <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
+               <div > {createAsset(shapeShift.coins)}</div>
             </SwipeableViews>
         </div>
         <div style={Object.assign({}, styles.slide, styles.slide2)}>

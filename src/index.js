@@ -8,7 +8,7 @@ import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
 import { fetchUserData } from './actions/userActions'
-import { listNetworks } from './actions/networkActions'
+import { fetchShapeShiftCoins } from './actions/shapeShiftActions'
 
 import userReducer from    './reducers/userReducer'
 import fileReducer from    './reducers/fileReducer'
@@ -16,6 +16,7 @@ import walletReducer from  './reducers/walletReducer'
 import learnerReducer from './reducers/learnerReducer'
 import editorReducer from  './reducers/editorReducer'
 import networksReducer from  './reducers/networksReducer'
+import shapeShiftReducer from './reducers/shapeShiftReducer'
 
 import App from            './components/App'
 
@@ -36,13 +37,15 @@ const store = createStore(
     router: routerReducer,
     file: fileReducer,
     networks: networksReducer,
+    shapeShift: shapeShiftReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(middleware, createLogger(), thunkMiddleware)
 )
 
 store.dispatch(fetchUserData())
-store.dispatch(listNetworks())
+store.dispatch(fetchShapeShiftCoins())
+//store.dispatch(listNetworks())
 
 ReactDOM.render(
   <Provider store={store}>

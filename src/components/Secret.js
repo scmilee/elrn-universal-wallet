@@ -9,12 +9,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 const Secret = ({user, ...rest}) => {
   return (
       <div>
-        secret.js
-        <br></br>
         {
           (user.isAuthenticated)
           ? <SwipeWallet></SwipeWallet>
-          : ''
+          : <div>not authenticated</div>
         }
       </div>
   )

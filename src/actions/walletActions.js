@@ -128,23 +128,23 @@ export const seedToMnemonic = (seed) => {
     }
 }
 
-export const ASSET_VIEW_CONTENT_CHANGE_ERROR = 'ASSET_VIEW_CONTENT_CHANGE_ERROR'
-export const ASSET_VIEW_CONTENT_CHANGE_REQUEST = 'ASSET_VIEW_CONTENT_CHANGE_REQUEST'
-export const ASSET_VIEW_CONTENT_CHANGE_SUCCESS = 'ASSET_VIEW_CONTENT_CHANGE_SUCCESS'
-
-export const assetViewContentChange = (value) => {
-  return (dispatch) => {
-      dispatch({ type: ASSET_VIEW_CONTENT_CHANGE_REQUEST })
-      try {
-          dispatch({
-              type: ASSET_VIEW_CONTENT_CHANGE_SUCCESS,
-              payload: {value}
-          })
-      } catch(error) {
-          dispatch({
-            type: ASSET_VIEW_CONTENT_CHANGE_ERROR,
-            payload: error
-          })
-      }
-  }
-}
+// export const ASSET_VIEW_CONTENT_CHANGE_ERROR = 'ASSET_VIEW_CONTENT_CHANGE_ERROR'
+// export const ASSET_VIEW_CONTENT_CHANGE_REQUEST = 'ASSET_VIEW_CONTENT_CHANGE_REQUEST'
+// export const ASSET_VIEW_CONTENT_CHANGE_SUCCESS = 'ASSET_VIEW_CONTENT_CHANGE_SUCCESS'
+// 
+// export const assetViewContentChange = (value) => {
+//   return (dispatch) => {
+//       dispatch({ type: ASSET_VIEW_CONTENT_CHANGE_REQUEST })
+//       try {
+//           dispatch({
+//               type: ASSET_VIEW_CONTENT_CHANGE_SUCCESS,
+//               payload: {value}
+//           })
+//       } catch(error) {
+//           dispatch({
+//             type: ASSET_VIEW_CONTENT_CHANGE_ERROR,
+//             payload: error
+//           })
+//       }
+//   }
+// }

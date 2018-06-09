@@ -22,8 +22,8 @@ const MnemonicForm = ({ mnemonic, handleSubmit, handleInputChange, ...rest }) =>
     <div>
       <textarea
           id="mnemonic"
-          rows="1"
-          cols="100"
+          rows="7"
+          columns="200"
           onChange={handleInputChange}
           placeholder={mnemonic}
           >

@@ -6,22 +6,26 @@ import Profile from './Profile'
 import Shift from './Shift'
 import Coins from './Coins'
 import ApproveShift from './ApproveShift'
+import SecretPhrase from './SecretPhrase'
+import ShapeShiftStatus from './ShapeShiftStatus'
 import styles from '../styles'
 
 const mapStateToProps = (state) => state
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const SwipeWallet = ({user, ...rest}) => {
-    return (
-      <div style={Object.assign({}, styles.slide)} >
+  return (
+    <div id="1" style={Object.assign({}, styles.slide)} >
       <SwipeableViews enableMouseEvents>
         <div id="profile"><Profile></Profile></div>
+        <div id="secretphrase"><SecretPhrase></SecretPhrase></div>
         <div id="coins"><Coins></Coins></div>
         <div id="shift"><Shift></Shift></div>
         <div id="approve"><ApproveShift></ApproveShift></div>
-        <div id="logout"><NavLink to='/logout'>Logout</NavLink></div>
+        <div id="status"><ShapeShiftStatus></ShapeShiftStatus></div>
+        <div id="logout"><br></br><br></br><NavLink to='/logout'>Logout</NavLink></div>
       </SwipeableViews>
-  </div>
+    </div>
   )
 }
 

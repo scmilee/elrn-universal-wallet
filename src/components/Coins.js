@@ -9,16 +9,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const createAsset = (coins) => {
     let coinListing =[]
-    let previous = null;
     for( let asset in coins){
-        if (previous){
-          coinListing.push(
-            <div id={asset}>
-                {coins[asset].name}&nbsp;<img style={Object.assign({}, styles.imageProfile)} alt={asset.name} src={coins[asset].image}></img>
-            </div>
-          )
-        }
-        previous = asset;
+      coinListing.push(
+        <div id={asset}>
+            {coins[asset].name}&nbsp;<img style={Object.assign({}, styles.imageProfile)} alt={asset.name} src={coins[asset].image}></img>
+        </div>
+      )
     }
     return coinListing;
 }
@@ -28,7 +24,7 @@ const Shift = ({ user, shapeShift, ...rest}) => {
     <div id="shift">
       Coins.js
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
-         <div>{createAsset(shapeShift.coins)}</div>
+         <div id="1">{createAsset(shapeShift.coins)}</div>
       </SwipeableViews>
     </div>
   )

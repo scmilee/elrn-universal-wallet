@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import Profile from './Profile'
 import Shift from './Shift'
 import Coins from './Coins'
+import ApproveShift from './ApproveShift'
 import styles from '../styles'
 
 const mapStateToProps = (state) => state
@@ -17,7 +18,7 @@ const SwipeWallet = ({user, ...rest}) => {
         <div id="profile"><Profile></Profile></div>
         <div id="coins"><Coins></Coins></div>
         <div id="shift"><Shift></Shift></div>
-        <div id="approve">shift 5 whatevers for 50 something elses.<br></br><NavLink to='/logout' activeClassName='is-active'>Shift!</NavLink> (this actually will log you out)</div>
+        <div id="approve"><ApproveShift></ApproveShift></div>
         <div id="logout"><NavLink to='/logout'>Logout</NavLink></div>
       </SwipeableViews>
   </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styles from '../styles.js'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -7,36 +8,7 @@ const mapStateToProps = ({user}) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {}
-
-const styles = {
-  imageProfile:{
-    height: '5vh',
-    borderRadius: '100%'
-  },
-  profileDiv:{
-    position: 'absolute'
-  },
-  imageLogo:{
-    width: '10vw',
-  },
-  slideContainer: {
-    padding:'2vh AUTO',
-    height:'50vh',
-    width: '30vw'
-  },
-  slide: {
-    margin: '5vh 15vw',
-    padding: '2vh 0',
-    height: '70vh',
-    width: '60vw',
-    backgroundColor: '#565656',
-    color: '#bab6b6',
-    position: 'relative',
-    textAlign: 'center',
-    fontSize: '3vh',
-  },
-};
+const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const Profile = ({ user, ...rest}) => {
   return (

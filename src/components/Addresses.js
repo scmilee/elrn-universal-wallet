@@ -1,22 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { generateWalletAddress } from '../actions/walletActions'
-
-const buttonStyle = {
-    //TECH DEBT: move to some external css file
-    height: '30px',
-    width: '250px',
-    borderRadius: '5px',
-    margin: '5px 30px 5px 0',
-    padding: '5px 5px',
-
-};
-
-const imgStyle = {
-    //TECH DEBT: move to some external css file
-    margin:' 0 10px 0 0',
-    height:'100%',
-};
+import styles from '../styles.js'
 
 const mapStateToProps = ({wallet}) => {
     return {
@@ -46,10 +31,10 @@ const Addresses = ({address, mnemonic, handleGenerateWalletAddressButton}) => {
         buttons.push(
             <div key={assetName}>
                 <button
-                    style={buttonStyle}
+                    style={styles.buttonStyle}
                     onClick={() => handleGenerateWalletAddressButton(assetData[asset])}
                 >
-                    <img style={imgStyle} alt={assetName} src={assetData[asset].image}></img>
+                <img style={styles.imgStyle} alt={assetName} src={assetData[asset].image}></img>
                     Generate {assetName} Address
                 </button>
                 <span>

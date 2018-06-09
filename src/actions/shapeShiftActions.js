@@ -12,10 +12,14 @@ export const fetchShapeShiftCoins = () => {
         const elrnClient = new Elrn(config)
         elrnClient.coins()
         .then((data) => {
-            dispatch({
-                type: FETCH_SHAPESHIFT_COINS_SUCCESS,
-                payload: data
-            })
+          const coins = [];
+          Object.keys(data).map((coin) => {
+            return coins.push(data[coin]);
+          })
+          dispatch({
+              type: FETCH_SHAPESHIFT_COINS_SUCCESS,
+              payload: coins
+          })
         })
     } catch(error) {
         dispatch({

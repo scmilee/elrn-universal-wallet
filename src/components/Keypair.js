@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { generateKeypair } from '../actions/keypairActions'
 
-const mapStateToProps = () => ({}))
+const mapStateToProps = () => ({})
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

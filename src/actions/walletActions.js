@@ -58,6 +58,8 @@ export const generateWalletSeed = () => {
                 //         seed: seed
                 //     }
                 // })
+                // we should be stopping here, but first we need to fix 
+                // problem where seed doesn't match the mnemonic in store state
                 dispatch(seedToMnemonic(seed))
             })
         } catch(error) {
@@ -73,24 +75,34 @@ export const GENERATE_WALLET_ADDRESS_ERROR = 'GENERATE_WALLET_ADDRESS_ERROR'
 export const GENERATE_WALLET_ADDRESS_REQUEST = 'GENERATE_WALLET_ADDRESS_REQUEST'
 export const GENERATE_WALLET_ADDRESS_SUCCESS = 'GENERATE_WALLET_ADDRESS_SUCCESS'
 
-export const generateWalletAddress = (asset) => {
+export const generateWalletAddress = (seed, derivePath, coinID) => {
     return (dispatch) => {
-        dispatch({ type: GENERATE_WALLET_ADDRESS_REQUEST })
+        dispatch({ 
+          type: GENERATE_WALLET_ADDRESS_REQUEST,
+          payload: {
+            seed: seed,
+            path: derivePath,
+            coinID: coinID
+          }
+        })
         try {
             const config = {};
             const elrnClient = new Elrn(config)
-            elrnClient.createSeed()
-            .then((seed) => elrnClient.seedToAddress(seed, "m/44'/0'/0'/0/0", asset))
+            elrnClient.seedToAddress(seed, derivePath, coinID)
             .then((address) => {
+                console.log(address)
                 dispatch({
                     type: GENERATE_WALLET_ADDRESS_SUCCESS,
                     payload: {
-                        name: asset,
-                        number: address
+                      seed: seed,
+                      coin: coinID,
+                      derivePath: derivePath,
+                      address: address
                     }
                 })
             })
-        } catch(error) {
+        } 
+        catch(error) {
             dispatch({
               type: GENERATE_WALLET_ADDRESS_ERROR,
               payload: error
@@ -98,7 +110,6 @@ export const generateWalletAddress = (asset) => {
         }
     }
 }
-
 export const SEED_TO_MNEMONIC_ERROR = 'SEED_TO_MNEMONIC_ERROR'
 export const SEED_TO_MNEMONIC_REQUEST = 'SEED_TO_MNEMONIC_REQUEST'
 export const SEED_TO_MNEMONIC_SUCCESS = 'SEED_TO_MNEMONIC_SUCCESS'
@@ -127,24 +138,3 @@ export const seedToMnemonic = (seed) => {
         }
     }
 }
-
-// export const ASSET_VIEW_CONTENT_CHANGE_ERROR = 'ASSET_VIEW_CONTENT_CHANGE_ERROR'
-// export const ASSET_VIEW_CONTENT_CHANGE_REQUEST = 'ASSET_VIEW_CONTENT_CHANGE_REQUEST'
-// export const ASSET_VIEW_CONTENT_CHANGE_SUCCESS = 'ASSET_VIEW_CONTENT_CHANGE_SUCCESS'
-// 
-// export const assetViewContentChange = (value) => {
-//   return (dispatch) => {
-//       dispatch({ type: ASSET_VIEW_CONTENT_CHANGE_REQUEST })
-//       try {
-//           dispatch({
-//               type: ASSET_VIEW_CONTENT_CHANGE_SUCCESS,
-//               payload: {value}
-//           })
-//       } catch(error) {
-//           dispatch({
-//             type: ASSET_VIEW_CONTENT_CHANGE_ERROR,
-//             payload: error
-//           })
-//       }
-//   }
-// }

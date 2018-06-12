@@ -51,14 +51,7 @@ export default (state = initialState, action) => {
         case GENERATE_WALLET_ADDRESS_REQUEST:
             return { ...state, isCreating: true }
         case GENERATE_WALLET_ADDRESS_SUCCESS:
-            return {
-                ...state,
-                isCreating: false,
-                address: {
-                    ...state.address,
-                    [action.payload.name]:action.payload.number
-                }
-            }
+            return { ...state, isCreating: false, ...action.payload }
         case ASSET_VIEW_CONTENT_CHANGE_ERROR:
             return { ...state, isCreating: false, error: action.payload }
         case ASSET_VIEW_CONTENT_CHANGE_REQUEST:

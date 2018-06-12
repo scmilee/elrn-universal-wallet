@@ -42,8 +42,9 @@ const store = createStore(
 )
 
 store.dispatch(fetchUserData())
-store.dispatch(fetchShapeShiftCoins())
 store.dispatch(generateWalletSeed())
+store.dispatch(fetchShapeShiftCoins())
+
 
 ReactDOM.render(
   <Provider store={store}>

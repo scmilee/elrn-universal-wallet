@@ -1,17 +1,19 @@
 import React from 'react'
 import styles from '../styles.js'
 
-const Coin = (coin, onClick) => {
+const Coin = ({onClick, id, name, image}) => {
+  
   return (
     <div>
-        {coin.name}&nbsp;
-        <img 
-          style={Object.assign({}, styles.imageProfile)} 
-          alt={coin.name} 
-          src={coin.image}>
-        </img>
+        <button
+            style={styles.buttonStyle}
+            onClick={onClick}
+        >
+        <img style={styles.imgStyle} alt={id} src={image}></img>
+            {id}
+        </button>
         <br></br>
     </div>
   )
 }
-export default Coin
+export default (Coin)

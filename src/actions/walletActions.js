@@ -61,6 +61,7 @@ export const generateWalletSeed = () => {
                 // we should be stopping here, but first we need to fix 
                 // problem where seed doesn't match the mnemonic in store state
                 dispatch(seedToMnemonic(seed))
+                dispatch(generateWalletAddress(seed, "m/44'/0'/0'/0/0", "bitcoin"))
             })
         } catch(error) {
             dispatch({

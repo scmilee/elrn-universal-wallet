@@ -22,7 +22,7 @@ const initialState = {
   seed: {},
   mnemonic: '',
   error: null,
-  address: {},
+  address: '',
   asset: ''
 }
 
@@ -51,7 +51,14 @@ export default (state = initialState, action) => {
         case GENERATE_WALLET_ADDRESS_REQUEST:
             return { ...state, isCreating: true }
         case GENERATE_WALLET_ADDRESS_SUCCESS:
-            return { ...state, isCreating: false, ...action.payload }
+          return {
+            ...state,
+            address: action.payload.address,
+            seed: action.payload.seed,
+            coin: action.payload.coinID,
+            derivePath: action.payload.derivePath,
+            address: action.payload.address
+          }
         case ASSET_VIEW_CONTENT_CHANGE_ERROR:
             return { ...state, isCreating: false, error: action.payload }
         case ASSET_VIEW_CONTENT_CHANGE_REQUEST:

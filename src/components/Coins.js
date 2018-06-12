@@ -4,6 +4,7 @@ import SwipeableViews from 'react-swipeable-views'
 import { generateWalletAddress } from '../actions/walletActions'
 import styles from '../styles.js'
 import Coin from './Coin'
+import Address from './Address'
 
 
 const mapStateToProps = ({shapeShift, wallet}) => {
@@ -35,7 +36,6 @@ const Coins = ({shapeShift, seed, handleButtonPush, ...rest}) => {
                   key={coin.name}
                   onClick={() => handleButtonPush(seed, coin.derivePath, coin.id)}
                   {...coin}
-                
                   >
                 </Coin>
               )

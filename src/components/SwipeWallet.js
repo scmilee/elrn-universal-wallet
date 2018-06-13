@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import SwipeableViews from 'react-swipeable-views'
 import { NavLink } from 'react-router-dom'
 import Profile from './Profile'
-import Shift from './Shift'
-import Coins from './Coins'
+import ShapeShiftFrom from './ShapeShiftFrom'
+import ShapeShiftTo from './ShapeShiftTo'
 import ApproveShift from './ApproveShift'
 import SecretPhrase from './SecretPhrase'
 import ShapeShiftStatus from './ShapeShiftStatus'
@@ -19,8 +19,8 @@ const SwipeWallet = ({user, ...rest}) => {
       <SwipeableViews enableMouseEvents>
         <div id="profile"><Profile></Profile></div>
         <div id="secretphrase"><SecretPhrase></SecretPhrase></div>
-        <div id="coins"><Coins></Coins></div>
-        <div id="shift"><Shift></Shift></div>
+        <div id="shapeShiftTo"><ShapeShiftTo></ShapeShiftTo></div>
+        <div id="shapeShiftFrom"><ShapeShiftFrom></ShapeShiftFrom></div>
         <div id="approve"><ApproveShift></ApproveShift></div>
         <div id="status"><ShapeShiftStatus></ShapeShiftStatus></div>
         <div id="logout"><br></br><br></br><NavLink to='/logout'>Logout</NavLink></div>

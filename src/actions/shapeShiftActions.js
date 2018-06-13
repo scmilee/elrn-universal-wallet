@@ -29,3 +29,63 @@ export const fetchShapeShiftCoins = () => {
     }
   }
 }
+
+export const SHAPESHIFT_SHIFT_ERROR = 'SHAPESHIFT_SHIFT_ERROR'
+export const SHAPESHIFT_SHIFT_REQUEST = 'SHAPESHIFT_SHIFT_REQUEST'
+export const SHAPESHIFT_SHIFT_SUCCESS = 'SHAPESHIFT_SHIFT_SUCCESS'
+
+export const shift = (withdrawalAddress, pair, options) => {
+  return (dispatch) => {
+    dispatch({ 
+      type: SHAPESHIFT_SHIFT_REQUEST,
+      payload: {
+        withdrawalAddress: withdrawalAddress,
+        pair: pair,
+        options: options
+      }
+     })
+    try {
+        const config = {};
+        const elrnClient = new Elrn(config)
+        elrnClient.shift(withdrawalAddress, pair, options)
+        .then((data) => {
+            dispatch({
+                type: SHAPESHIFT_SHIFT_SUCCESS,
+                payload: data
+            })
+
+        })
+    } catch(error) {
+        dispatch({
+            type: SHAPESHIFT_SHIFT_ERROR,
+            payload: error
+        })
+    }
+  }
+}
+
+export const SET_SHAPESHIFT_FROM_SYMBOL = 'SET_SHAPESHIFT_FROM_SYMBOL'
+
+export const setShapeShiftFromSymbol = (symbol) => {
+  return (dispatch) => {
+    dispatch({ 
+      type: SET_SHAPESHIFT_FROM_SYMBOL,
+      payload: {
+        symbol: symbol
+      }
+     })
+  }
+}
+
+export const SET_SHAPESHIFT_TO_SYMBOL = 'SET_SHAPESHIFT_TO_SYMBOL'
+
+export const setShapeShiftToSymbol = (symbol) => {
+  return (dispatch) => {
+    dispatch({ 
+      type: SET_SHAPESHIFT_TO_SYMBOL,
+      payload: {
+        symbol: symbol
+      }
+     })
+  }
+}

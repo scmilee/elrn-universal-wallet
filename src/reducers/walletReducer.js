@@ -56,8 +56,7 @@ export default (state = initialState, action) => {
             address: action.payload.address,
             seed: action.payload.seed,
             coin: action.payload.coinID,
-            derivePath: action.payload.derivePath,
-            address: action.payload.address
+            derivePath: action.payload.derivePath
           }
         case ASSET_VIEW_CONTENT_CHANGE_ERROR:
             return { ...state, isCreating: false, error: action.payload }

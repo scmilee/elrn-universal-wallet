@@ -61,7 +61,6 @@ export const generateWalletSeed = () => {
                 // we should be stopping here, but first we need to fix 
                 // problem where seed doesn't match the mnemonic in store state
                 dispatch(seedToMnemonic(seed))
-                dispatch(generateWalletAddress(seed, "m/44'/0'/0'/0/0", "bitcoin"))
             })
         } catch(error) {
             dispatch({
@@ -76,28 +75,26 @@ export const GENERATE_WALLET_ADDRESS_ERROR = 'GENERATE_WALLET_ADDRESS_ERROR'
 export const GENERATE_WALLET_ADDRESS_REQUEST = 'GENERATE_WALLET_ADDRESS_REQUEST'
 export const GENERATE_WALLET_ADDRESS_SUCCESS = 'GENERATE_WALLET_ADDRESS_SUCCESS'
 
-export const generateWalletAddress = (seed, derivePath, coinID) => {
+export const generateWalletAddress = (seed, coin) => {
     return (dispatch) => {
         dispatch({ 
           type: GENERATE_WALLET_ADDRESS_REQUEST,
           payload: {
             seed: seed,
-            path: derivePath,
-            coinID: coinID
+            coin: coin
           }
         })
         try {
             const config = {};
             const elrnClient = new Elrn(config)
-            elrnClient.seedToAddress(seed, derivePath, coinID)
+            elrnClient.seedToAddress(seed, coin.extension.derivePath, coin.id)
             .then((address) => {
-                console.log(address)
                 dispatch({
                     type: GENERATE_WALLET_ADDRESS_SUCCESS,
                     payload: {
                       seed: seed,
-                      coin: coinID,
-                      derivePath: derivePath,
+                      coin: coin.id,
+                      derivePath: coin.extension.derivePath,
                       address: address
                     }
                 })

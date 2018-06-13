@@ -2,6 +2,8 @@ import {
   FETCH_SHAPESHIFT_COINS_ERROR,
   FETCH_SHAPESHIFT_COINS_REQUEST,
   FETCH_SHAPESHIFT_COINS_SUCCESS,
+  SET_SHAPESHIFT_FROM_SYMBOL,
+  SET_SHAPESHIFT_TO_SYMBOL,
 } from '../actions/shapeShiftActions'
 
 const initialState = {
@@ -23,6 +25,18 @@ export default (state = initialState, action) => {
             inFlight: false,
             isComplete: true,
             coins: action.payload
+          }
+        }
+        case SET_SHAPESHIFT_FROM_SYMBOL: {
+          return {
+            ...state,
+            fromSymbol: action.payload.symbol
+          }
+        }
+        case SET_SHAPESHIFT_TO_SYMBOL: {
+          return {
+            ...state,
+            toSymbol: action.payload.symbol
           }
         }
         default:

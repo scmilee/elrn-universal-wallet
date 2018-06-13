@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Address from './Address'
+import ApproveShiftButton from './ApproveShiftButton'
 
 const mapStateToProps = (state) => state
 
@@ -11,7 +12,8 @@ const ApproveShift = ({shapeShift, ...rest}) => {
     <div>
       ApproveShift.js
       <br></br>
-      Target Address:&nbsp;<Address></Address>
+      Withdrawal Address:&nbsp;<Address></Address>
+    <ApproveShiftButton></ApproveShiftButton>
     </div>
   )
 }

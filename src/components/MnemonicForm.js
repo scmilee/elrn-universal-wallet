@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleInputChange: (evt) => {
         const val = evt.target.value;
-        dispatch(mnemonicToSeed(val));
+        mnemonicToSeed(val);
     }
   }
 }

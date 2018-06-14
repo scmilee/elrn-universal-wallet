@@ -10,7 +10,9 @@ const initialState = {
   inFlight: false,
   isComplete: false,
   error: null,
-  coins: []
+  coins: [],
+  fromSymbol: '?',
+  toSymbol: '?'
 }
 
 export default (state = initialState, action) => {

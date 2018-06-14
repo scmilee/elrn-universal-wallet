@@ -4,16 +4,15 @@ import { shift } from '../actions/shapeShiftActions'
 
 const mapStateToProps = ({shapeShift, wallet}) => {
   return {
-    shapeShift: shapeShift,
-    withdrawalAddress: wallet.address
+    withdrawalAddress: wallet.address,
+    fromSymbol: shapeShift.fromSymbol,
+    toSymbol: shapeShift.toSymbol,
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    handleApproveShiftButton: (withdrawalAddress) => {
-      const fromSymbol='BTC'
-      const toSymbol='ETH'
+    handleApproveShiftButton: (withdrawalAddress, fromSymbol, toSymbol) => {
       const pair = `${fromSymbol}_${toSymbol}`
       const options = {
         returnAddress: '1LmoNY5vmDkNKDeRqQwSjLksVzQ9GrZysp',
@@ -24,9 +23,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const ApproveShiftButton = ({ handleApproveShiftButton, ...rest }) => {
+const ApproveShiftButton = ({ withdrawalAddress, fromSymbol, toSymbol, handleApproveShiftButton, ...rest }) => {
   return (
-    <button onClick={() => handleApproveShiftButton()}>Approve Shift</button>
+    <button onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol)}>Approve Shift</button>
   )
 }
 

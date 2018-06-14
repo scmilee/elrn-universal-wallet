@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import Profile from './Profile'
 import ShapeShiftFrom from './ShapeShiftFrom'
 import ShapeShiftTo from './ShapeShiftTo'
-import ApproveShift from './ApproveShift'
+import ShapeShiftApproveShift from './ShapeShiftApproveShift'
 import SecretPhrase from './SecretPhrase'
 import ShapeShiftStatus from './ShapeShiftStatus'
 import styles from '../styles'
@@ -21,7 +21,7 @@ const SwipeWallet = ({user, ...rest}) => {
         <div id="secretphrase"><SecretPhrase></SecretPhrase></div>
         <div id="shapeShiftTo"><ShapeShiftTo></ShapeShiftTo></div>
         <div id="shapeShiftFrom"><ShapeShiftFrom></ShapeShiftFrom></div>
-        <div id="approve"><ApproveShift></ApproveShift></div>
+        <div id="approve"><ShapeShiftApproveShift></ShapeShiftApproveShift></div>
         <div id="status"><ShapeShiftStatus></ShapeShiftStatus></div>
         <div id="logout"><br></br><br></br><NavLink to='/logout'>Logout</NavLink></div>
       </SwipeableViews>

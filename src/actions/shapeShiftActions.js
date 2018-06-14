@@ -90,15 +90,28 @@ export const setShapeShiftToSymbol = (symbol) => {
   }
 }
 
-export const SET_SHAPESHIFT_RETURN_ADDRESS = 'SET_SHAPESHIFT_RETURN_ADDRESS'
+export const SET_SHAPESHIFT_AMOUNT = 'SET_SHAPESHIFT_AMOUNT'
 
-export const setShapeShiftReturnAddress = (address) => {
+export const setShapeShiftAmount = (amount) => {
   return (dispatch) => {
     dispatch({ 
-      type: SET_SHAPESHIFT_RETURN_ADDRESS,
+      type: SET_SHAPESHIFT_AMOUNT,
       payload: {
-        returnAddress: address
+        amount: amount
       }
      })
   }
 }
+
+// export const SET_SHAPESHIFT_RETURN_ADDRESS = 'SET_SHAPESHIFT_RETURN_ADDRESS'
+// 
+// export const setShapeShiftReturnAddress = (address) => {
+//   return (dispatch) => {
+//     dispatch({ 
+//       type: SET_SHAPESHIFT_RETURN_ADDRESS,
+//       payload: {
+//         returnAddress: address
+//       }
+//      })
+//   }
+// }

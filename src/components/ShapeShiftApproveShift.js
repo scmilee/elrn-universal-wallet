@@ -5,6 +5,7 @@ import ApproveShiftButton from './ApproveShiftButton'
 import ShapeShiftFromSymbol from './ShapeShiftFromSymbol'
 import ShapeShiftToSymbol from './ShapeShiftToSymbol'
 import ShapeshiftReturnAddress from './ShapeshiftReturnAddress'
+import ShapeShiftAmountForm from './ShapeShiftAmountForm'
 
 const mapStateToProps = (state) => state
 
@@ -26,6 +27,8 @@ const ApproveShift = ({shapeShift, ...rest}) => {
       Return Address:
       <br></br>
       <ShapeshiftReturnAddress></ShapeshiftReturnAddress>
+      <br></br>
+      <ShapeShiftAmountForm></ShapeShiftAmountForm>
       <br></br>
       <ApproveShiftButton></ApproveShiftButton>
     </div>

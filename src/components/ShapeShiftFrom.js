@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const ShapeShiftFrom = ({ seed, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
   return (
     <div id="shift">
-      ShapeShiftFrom.js
+      ShapeShiftFrom.js (Deposit)
       <br></br>
       <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
       <ShapeShiftReturnAddressForm></ShapeShiftReturnAddressForm>

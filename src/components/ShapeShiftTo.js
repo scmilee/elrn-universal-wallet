@@ -27,7 +27,7 @@ export default connect(mapStateToProps, mapDispatchToProps )(
   ({shapeShift, seed, handleButtonPush, ...rest}) => {
   return (
     <div id="coins">
-      ShapeShiftTo.js
+      ShapeShiftTo.js (Receive)
       <br></br>
       <ShapeShiftToSymbol></ShapeShiftToSymbol>
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>

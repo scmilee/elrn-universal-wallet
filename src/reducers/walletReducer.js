@@ -24,8 +24,7 @@ const initialState = {
   seed: {},
   mnemonic: '',
   error: null,
-  address: '',
-  asset: ''
+  address: ''
 }
 
 export default (state = initialState, action) => {

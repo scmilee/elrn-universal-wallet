@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import SwipeableViews from 'react-swipeable-views'
 import { generateWalletAddress } from '../actions/walletActions'
 import { setShapeShiftToSymbol } from '../actions/shapeShiftActions'
+import ShapeShiftToSymbol from './ShapeShiftToSymbol'
 import styles from '../styles.js'
 import Coin from './Coin'
 
@@ -27,6 +28,8 @@ export default connect(mapStateToProps, mapDispatchToProps )(
   return (
     <div id="coins">
       ShapeShiftTo.js
+      <br></br>
+      <ShapeShiftToSymbol></ShapeShiftToSymbol>
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
         <div>
           {(

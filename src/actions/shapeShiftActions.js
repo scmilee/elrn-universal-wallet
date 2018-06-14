@@ -89,3 +89,16 @@ export const setShapeShiftToSymbol = (symbol) => {
      })
   }
 }
+
+export const SET_SHAPESHIFT_RETURN_ADDRESS = 'SET_SHAPESHIFT_RETURN_ADDRESS'
+
+export const setShapeShiftReturnAddress = (address) => {
+  return (dispatch) => {
+    dispatch({ 
+      type: SET_SHAPESHIFT_RETURN_ADDRESS,
+      payload: {
+        returnAddress: address
+      }
+     })
+  }
+}

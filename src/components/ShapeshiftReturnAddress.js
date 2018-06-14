@@ -3,18 +3,18 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = ({wallet}) => {
   return {
-    address: wallet.address
+    returnAddress: wallet.returnAddress
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const WithdrawalAddress = ({ address, ...rest }) => {
+const ShapeshiftReturnAddress = ({ returnAddress, ...rest }) => {
   return (
     <div>
-      {address}
+      {returnAddress}
     </div>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithdrawalAddress)
+export default connect(mapStateToProps, mapDispatchToProps)(ShapeshiftReturnAddress)

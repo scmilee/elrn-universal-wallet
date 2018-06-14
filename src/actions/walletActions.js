@@ -108,6 +108,46 @@ export const generateWalletAddress = (seed, coin) => {
         }
     }
 }
+
+export const GENERATE_SHAPESHIFT_RETURN_ADDRESS_ERROR = 'GENERATE_SHAPESHIFT_RETURN_ADDRESS_ERROR'
+export const GENERATE_SHAPESHIFT_RETURN_ADDRESS_REQUEST = 'GENERATE_SHAPESHIFT_RETURN_ADDRESS_REQUEST'
+export const GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS = 'GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS'
+
+export const generateShapeShiftReturnAddress = (seed, coin) => {
+    return (dispatch) => {
+        dispatch({ 
+          type: GENERATE_SHAPESHIFT_RETURN_ADDRESS_REQUEST,
+          payload: {
+            seed: seed,
+            coin: coin
+          }
+        })
+        try {
+            const config = {};
+            const elrnClient = new Elrn(config)
+            elrnClient.seedToAddress(seed, coin.derivePath, coin.id)
+            .then((address) => {
+                dispatch({
+                    type: GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS,
+                    payload: {
+                      seed: seed,
+                      coin: coin.id,
+                      derivePath: coin.derivePath,
+                      returnAddress: address
+                    }
+                })
+            })
+        } 
+        catch(error) {
+            dispatch({
+              type: GENERATE_SHAPESHIFT_RETURN_ADDRESS_ERROR,
+              payload: error
+            })
+        }
+    }
+}
+
+
 export const SEED_TO_MNEMONIC_ERROR = 'SEED_TO_MNEMONIC_ERROR'
 export const SEED_TO_MNEMONIC_REQUEST = 'SEED_TO_MNEMONIC_REQUEST'
 export const SEED_TO_MNEMONIC_SUCCESS = 'SEED_TO_MNEMONIC_SUCCESS'

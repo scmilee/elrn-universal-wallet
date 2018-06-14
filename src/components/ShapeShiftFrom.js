@@ -2,11 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import SwipeableViews from 'react-swipeable-views'
 import { setShapeShiftFromSymbol } from '../actions/shapeShiftActions'
+import ShapeShiftFromSymbol from './ShapeShiftFromSymbol'
+import ShapeShiftReturnAddressForm from './ShapeShiftReturnAddressForm'
+import { generateShapeShiftReturnAddress } from '../actions/walletActions'
 import styles from '../styles.js'
 import Coin from './Coin'
 
 const mapStateToProps = ({shapeShift, wallet}) => {
   return {
+    seed: wallet.seed,
     shapeShift: shapeShift,
     withdrawalAddress: wallet.address
   }
@@ -14,16 +18,20 @@ const mapStateToProps = ({shapeShift, wallet}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-      handleButtonPush: (symbol) => {
-          dispatch(setShapeShiftFromSymbol(symbol))
+      handleButtonPush: (seed, coin) => {
+          dispatch(setShapeShiftFromSymbol(coin.symbol))
+          dispatch(generateShapeShiftReturnAddress(seed, coin)) 
         }
     }
 }
 
-const ShapeShiftFrom = ({ shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
+const ShapeShiftFrom = ({ seed, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
   return (
     <div id="shift">
       ShapeShiftFrom.js
+      <br></br>
+      <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
+      <ShapeShiftReturnAddressForm></ShapeShiftReturnAddressForm>
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
           <div>
             {(
@@ -31,7 +39,7 @@ const ShapeShiftFrom = ({ shapeShift, withdrawalAddress, handleButtonPush, ...re
                 return (
                   <Coin 
                     key={coin.name}
-                    onClick={() => handleButtonPush(coin.symbol)}
+                    onClick={() => handleButtonPush(seed, coin)}
                     {...coin}
                     >
                   </Coin>

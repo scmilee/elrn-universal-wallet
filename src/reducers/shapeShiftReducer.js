@@ -3,7 +3,7 @@ import {
   FETCH_SHAPESHIFT_COINS_REQUEST,
   FETCH_SHAPESHIFT_COINS_SUCCESS,
   SET_SHAPESHIFT_FROM_SYMBOL,
-  SET_SHAPESHIFT_TO_SYMBOL,
+  SET_SHAPESHIFT_TO_SYMBOL
 } from '../actions/shapeShiftActions'
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
   error: null,
   coins: [],
   fromSymbol: '?',
-  toSymbol: '?'
+  toSymbol: '?',
 }
 
 export default (state = initialState, action) => {
@@ -41,6 +41,7 @@ export default (state = initialState, action) => {
             toSymbol: action.payload.symbol
           }
         }
+
         default:
             return state
     }

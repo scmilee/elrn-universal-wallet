@@ -13,7 +13,9 @@ import {
   GENERATE_WALLET_ADDRESS_SUCCESS,
   ASSET_VIEW_CONTENT_CHANGE_ERROR,
   ASSET_VIEW_CONTENT_CHANGE_REQUEST,
-  ASSET_VIEW_CONTENT_CHANGE_SUCCESS
+  ASSET_VIEW_CONTENT_CHANGE_SUCCESS,
+  SET_SHAPESHIFT_RETURN_ADDRESS,
+  GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS
 } from '../actions/walletActions'
 
 const initialState = {
@@ -64,6 +66,18 @@ export default (state = initialState, action) => {
             return { ...state, isCreating: true }
         case ASSET_VIEW_CONTENT_CHANGE_SUCCESS:
           return { ...state, asset: action.payload.value}
+          case SET_SHAPESHIFT_RETURN_ADDRESS: {
+            return {
+              ...state,
+              returnAddress: action.payload.returnAddress
+            }
+          }
+          case GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS: {
+            return {
+              ...state,
+              returnAddress: action.payload.returnAddress
+            }
+          }
         default:
             return state
     }

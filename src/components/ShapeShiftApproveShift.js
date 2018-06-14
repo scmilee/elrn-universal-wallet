@@ -4,6 +4,7 @@ import WithdrawalAddress from './WithdrawalAddress'
 import ApproveShiftButton from './ApproveShiftButton'
 import ShapeShiftFromSymbol from './ShapeShiftFromSymbol'
 import ShapeShiftToSymbol from './ShapeShiftToSymbol'
+import ShapeshiftReturnAddress from './ShapeshiftReturnAddress'
 
 const mapStateToProps = (state) => state
 
@@ -21,6 +22,10 @@ const ApproveShift = ({shapeShift, ...rest}) => {
       Withdrawal Address:
       <br></br>
       <WithdrawalAddress></WithdrawalAddress>
+      <br></br>
+      Return Address:
+      <br></br>
+      <ShapeshiftReturnAddress></ShapeshiftReturnAddress>
       <br></br>
       <ApproveShiftButton></ApproveShiftButton>
     </div>

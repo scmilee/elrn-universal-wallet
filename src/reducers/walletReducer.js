@@ -24,7 +24,8 @@ import {
   ASSET_VIEW_CONTENT_CHANGE_REQUEST,
   ASSET_VIEW_CONTENT_CHANGE_SUCCESS,
   SET_SHAPESHIFT_RETURN_ADDRESS,
-  GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS
+  GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS,
+  RETURN_ADDRESS_LOAD,
 } from '../actions/walletActions'
 
 const initialState = {
@@ -100,6 +101,8 @@ export default (state = initialState, action) => {
           return { ...state, isFetching: false, mnemonic: action.payload.mnemonic }
         case MNEMONIC_LOAD:
             return { ...state, mnemonic: action.payload };
+        case RETURN_ADDRESS_LOAD:
+            return {...state, returnAddress: action.payload };
         default:
             return state
     }

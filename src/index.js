@@ -12,9 +12,9 @@ import { fetchShapeShiftCoins } from './actions/shapeShiftActions'
 import { fetchBlockstackMnemonic} from './actions/walletActions'
 
 import userReducer from    './reducers/userReducer'
-import fileReducer from    './reducers/fileReducer'
 import walletReducer from  './reducers/walletReducer'
 import shapeShiftReducer from './reducers/shapeShiftReducer'
+
 import App from            './components/App'
 
 import './index.css'
@@ -30,7 +30,6 @@ const store = createStore(
     wallet: walletReducer,
     user: userReducer,
     router: routerReducer,
-    file: fileReducer,
     shapeShift: shapeShiftReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),

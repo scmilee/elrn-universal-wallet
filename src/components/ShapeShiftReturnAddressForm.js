@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setShapeShiftReturnAddress } from '../actions/walletActions'
+import { loadReturnAddress } from '../actions/walletActions'
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleInputChange: (evt) => {
         const val = evt.target.value;
-        setShapeShiftReturnAddress(val);
+        dispatch(loadReturnAddress(val));
     }
   }
 }

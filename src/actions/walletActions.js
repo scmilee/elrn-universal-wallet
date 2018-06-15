@@ -34,6 +34,9 @@ export const fetchBlockstackMnemonic = () => {
   }
 }
 
+export const RETURN_ADDRESS_LOAD = 'RETURN_ADDRESS_LOAD';
+export const loadReturnAddress = (val) => ({ type: RETURN_ADDRESS_LOAD, payload: val });
+
 export const MNEMONIC_LOAD = 'MNEMONIC_LOAD';
 export const loadMnemonic = (val) => ({ type: MNEMONIC_LOAD, payload: val });
 
@@ -111,18 +114,7 @@ export const generateWalletSeed = () => {
             const config = {};
             const elrnClient = new Elrn(config)
             elrnClient.createSeed()
-            .then((seed) => {
-                // dispatch({
-                //     type: GENERATE_WALLET_SEED_SUCCESS,
-                //     payload: {
-                //         seed: seed
-                //     }
-                // })
-                // we should be stopping here, but first we need to fix 
-                // problem where seed doesn't match the mnemonic in store state
-                // dispatch(putBlockstackWalletSeed(seed))
-                dispatch(seedToMnemonic(seed))
-            })
+            .then((seed) => dispatch(seedToMnemonic(seed)))
         } catch(error) {
             dispatch({
                 type: GENERATE_WALLET_SEED_ERROR,
@@ -198,6 +190,7 @@ export const generateShapeShiftReturnAddress = (mnemonic, coin) => {
                       returnAddress: address
                     }
                 })
+                dispatch(loadReturnAddress(address))
             })
         } 
         catch(error) {

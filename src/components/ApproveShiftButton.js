@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const pair = `${fromSymbol}_${toSymbol}`
       const options = {
         returnAddress: returnAddress,
-        amount: amount
+        amount: amount,
+        timeout: 120
       }
       dispatch(shift(withdrawalAddress, pair, options))
     }

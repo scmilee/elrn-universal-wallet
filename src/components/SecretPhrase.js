@@ -3,7 +3,11 @@ import { connect } from 'react-redux'
 import Mnemonic from './Mnemonic'
 import MnemonicForm from './MnemonicForm'
 
-const mapStateToProps = (state) => state
+const mapStateToProps = ({wallet}) => {
+  return {
+    mnemonic: wallet.mnemonic
+  }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 

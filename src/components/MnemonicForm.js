@@ -1,23 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { mnemonicToSeed } from '../actions/walletActions'
+import { loadMnemonic } from '../actions/walletActions'
+import SaveMnemonicButton from './SaveMnemonicButton'
 
-const mapStateToProps = ({wallet}) => {
-  return {
-    mnemonic: wallet.mnemonic
-  }
-}
+const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleInputChange: (evt) => {
-        const val = evt.target.value;
-        mnemonicToSeed(val);
+        const mnemonic = evt.target.value;
+        dispatch(loadMnemonic(mnemonic));      
     }
   }
 }
 
-const MnemonicForm = ({ mnemonic, handleSubmit, handleInputChange, ...rest }) => {
+const MnemonicForm = ({ handleInputChange, ...rest }) => {
   return (
     <div>
       <textarea
@@ -25,9 +22,10 @@ const MnemonicForm = ({ mnemonic, handleSubmit, handleInputChange, ...rest }) =>
           rows="7"
           columns="200"
           onChange={handleInputChange}
-          placeholder={mnemonic}
           >
       </textarea>
+      <br></br>
+      <SaveMnemonicButton></SaveMnemonicButton>
     </div>
   )
 }

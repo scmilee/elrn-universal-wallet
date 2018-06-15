@@ -1,5 +1,63 @@
 import Elrn from 'lib-client-elrn-wallet'
 
+import * as blockstack from 'blockstack'
+
+export const FETCH_MNEMONIC_REQUEST = 'FETCH_MNEMONIC_REQUEST'
+export const FETCH_MNEMONIC_SUCCESS = 'FETCH_MNEMONIC_SUCCESS'
+export const FETCH_MNEMONIC_ERROR = 'FETCH_MNEMONIC_ERROR'
+export const PUT_MNEMONIC_REQUEST = 'PUT_MNEMONIC_REQUEST'
+export const PUT_MNEMONIC_SUCCESS = 'PUT_MNEMONIC_SUCCESS'
+export const PUT_MNEMONIC_ERROR = 'PUT_MNEMONIC_ERROR'
+
+export const fetchBlockstackMnemonic = () => {
+  return (dispatch) => {
+  dispatch({ type: FETCH_MNEMONIC_REQUEST })
+  if (blockstack.isUserSignedIn()) {
+    return blockstack.getFile('elrnWalletMnemonic', true)
+      .then(
+        mnemonic => {
+          if (mnemonic !== null) {
+            dispatch({
+              type: FETCH_MNEMONIC_SUCCESS,
+              payload: {
+                mnemonic: mnemonic
+              }
+            })
+            dispatch(loadMnemonic(mnemonic))
+          } else {
+            dispatch(generateWalletSeed())
+          }
+        },
+        error => dispatch({ type: FETCH_MNEMONIC_ERROR, payload: error })
+      )
+    }
+  }
+}
+
+export const MNEMONIC_LOAD = 'MNEMONIC_LOAD';
+
+export const loadMnemonic = (val) => ({ type: MNEMONIC_LOAD, payload: val });
+
+export const putBlockstackMnemonic = (mnemonic) => {
+  return (dispatch) => {
+    dispatch({ 
+      type: PUT_MNEMONIC_REQUEST,
+      payload: {mnemnonic: mnemonic}
+    })
+    return blockstack.putFile('elrnWalletMnemonic', mnemonic, true)
+      .then(() => {
+        dispatch({
+          type: PUT_MNEMONIC_SUCCESS,
+          payload: {
+            mnemonic: mnemonic
+          }
+        })
+        
+      }
+    )
+  }
+}
+
 export const MNEMONIC_TO_SEED_ERROR = 'MNEMONIC_TO_SEED_ERROR'
 export const MNEMONIC_TO_SEED_REQUEST = 'MNEMONIC_TO_SEED_REQUEST'
 export const MNEMONIC_TO_SEED_SUCCESS = 'MNEMONIC_TO_SEED_SUCCESS'
@@ -26,6 +84,7 @@ export const mnemonicToSeed = (mnemonic) => {
                        seed: seed
                     }
                 })
+                //dispatch(putBlockstackMnemonic(mnemonic))
             })
 
         } catch(error) {
@@ -60,6 +119,7 @@ export const generateWalletSeed = () => {
                 // })
                 // we should be stopping here, but first we need to fix 
                 // problem where seed doesn't match the mnemonic in store state
+                // dispatch(putBlockstackWalletSeed(seed))
                 dispatch(seedToMnemonic(seed))
             })
         } catch(error) {
@@ -167,6 +227,7 @@ export const seedToMnemonic = (seed) => {
                     }
                 })
                 dispatch(mnemonicToSeed(mnemonic))
+                dispatch(putBlockstackMnemonic(mnemonic))
             })
         } catch(error) {
             dispatch({

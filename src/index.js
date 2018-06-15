@@ -9,7 +9,7 @@ import thunkMiddleware from 'redux-thunk'
 
 import { fetchUserData } from './actions/userActions'
 import { fetchShapeShiftCoins } from './actions/shapeShiftActions'
-import { generateWalletSeed } from './actions/walletActions'
+import { fetchBlockstackMnemonic} from './actions/walletActions'
 
 import userReducer from    './reducers/userReducer'
 import fileReducer from    './reducers/fileReducer'
@@ -42,7 +42,7 @@ const store = createStore(
 )
 
 store.dispatch(fetchUserData())
-store.dispatch(generateWalletSeed())
+store.dispatch(fetchBlockstackMnemonic())
 store.dispatch(fetchShapeShiftCoins())
 
 

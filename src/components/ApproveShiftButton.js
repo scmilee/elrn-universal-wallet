@@ -8,17 +8,17 @@ const mapStateToProps = ({shapeShift, wallet}) => {
     toSymbol: shapeShift.toSymbol,
     fromSymbol: shapeShift.fromSymbol,
     returnAddress: wallet.returnAddress,
-    amount: shapeShift.amount
+    shiftAmount: shapeShift.shiftAmount
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    handleApproveShiftButton: (withdrawalAddress, fromSymbol, toSymbol, returnAddress, amount) => {
+    handleApproveShiftButton: (withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount) => {
       const pair = `${fromSymbol}_${toSymbol}`
       const options = {
         returnAddress: returnAddress,
-        amount: amount,
+        amount: shiftAmount,
         timeout: 120
       }
       dispatch(shift(withdrawalAddress, pair, options))
@@ -26,9 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const ApproveShiftButton = ({ withdrawalAddress, fromSymbol, toSymbol, returnAddress, amount, handleApproveShiftButton, ...rest }) => {
+const ApproveShiftButton = ({ withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount, handleApproveShiftButton, ...rest }) => {
   return (
-    <button onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol, returnAddress, amount)}>Approve Shift</button>
+    <button onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount)}>Approve Shift</button>
   )
 }
 

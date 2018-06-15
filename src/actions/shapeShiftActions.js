@@ -1,5 +1,10 @@
 import Elrn from 'lib-client-elrn-wallet'
 
+
+export const SHIFT_AMOUNT_LOAD = 'SHIFT_AMOUNT_LOAD';
+
+export const loadShiftAmount = (val) => ({ type: SHIFT_AMOUNT_LOAD, payload: val });
+
 export const FETCH_SHAPESHIFT_COINS_ERROR = 'FETCH_SHAPESHIFT_COINS_ERROR'
 export const FETCH_SHAPESHIFT_COINS_REQUEST = 'FETCH_SHAPESHIFT_COINS_REQUEST'
 export const FETCH_SHAPESHIFT_COINS_SUCCESS = 'FETCH_SHAPESHIFT_COINS_SUCCESS'
@@ -89,29 +94,3 @@ export const setShapeShiftToSymbol = (symbol) => {
      })
   }
 }
-
-export const SET_SHAPESHIFT_AMOUNT = 'SET_SHAPESHIFT_AMOUNT'
-
-export const setShapeShiftAmount = (amount) => {
-  return (dispatch) => {
-    dispatch({ 
-      type: SET_SHAPESHIFT_AMOUNT,
-      payload: {
-        amount: amount
-      }
-     })
-  }
-}
-
-// export const SET_SHAPESHIFT_RETURN_ADDRESS = 'SET_SHAPESHIFT_RETURN_ADDRESS'
-// 
-// export const setShapeShiftReturnAddress = (address) => {
-//   return (dispatch) => {
-//     dispatch({ 
-//       type: SET_SHAPESHIFT_RETURN_ADDRESS,
-//       payload: {
-//         returnAddress: address
-//       }
-//      })
-//   }
-// }

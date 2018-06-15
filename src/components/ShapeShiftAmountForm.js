@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setShapeShiftAmount } from '../actions/walletActions'
+import { loadShiftAmount } from '../actions/walletActions'
 
 const mapStateToProps = ({shapeShift}) => {
   return {
-    shapeShiftAmount: shapeShift.amount
+    shiftAmount: shapeShift.shiftAmount
   }
 }
 
@@ -12,12 +12,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleInputChange: (evt) => {
         const val = evt.target.value;
-        setShapeShiftAmount(val);
+        dispatch(loadShiftAmount(val));
     }
   }
 }
 
-const ShapeShiftAmountForm = ({ shapeShiftAmount, handleInputChange, ...rest }) => {
+const ShapeShiftAmountForm = ({ shiftAmount, handleInputChange, ...rest }) => {
   return (
     <div>
       <textarea
@@ -25,7 +25,7 @@ const ShapeShiftAmountForm = ({ shapeShiftAmount, handleInputChange, ...rest }) 
           rows="1"
           columns="200"
           onChange={handleInputChange}
-          placeholder={shapeShiftAmount}
+          placeholder={shiftAmount}
           >
       </textarea>
     </div>

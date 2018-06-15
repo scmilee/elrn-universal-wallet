@@ -14,8 +14,6 @@ import { fetchBlockstackMnemonic} from './actions/walletActions'
 import userReducer from    './reducers/userReducer'
 import fileReducer from    './reducers/fileReducer'
 import walletReducer from  './reducers/walletReducer'
-import learnerReducer from './reducers/learnerReducer'
-import editorReducer from  './reducers/editorReducer'
 import shapeShiftReducer from './reducers/shapeShiftReducer'
 import App from            './components/App'
 
@@ -30,8 +28,6 @@ const middleware = routerMiddleware(history)
 const store = createStore(
   combineReducers({
     wallet: walletReducer,
-    learner: learnerReducer,
-    editor: editorReducer,
     user: userReducer,
     router: routerReducer,
     file: fileReducer,
@@ -44,7 +40,6 @@ const store = createStore(
 store.dispatch(fetchUserData())
 store.dispatch(fetchBlockstackMnemonic())
 store.dispatch(fetchShapeShiftCoins())
-
 
 ReactDOM.render(
   <Provider store={store}>

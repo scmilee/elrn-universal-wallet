@@ -4,8 +4,8 @@ import {
   FETCH_SHAPESHIFT_COINS_SUCCESS,
   SET_SHAPESHIFT_FROM_SYMBOL,
   SET_SHAPESHIFT_TO_SYMBOL,
-  SET_SHAPESHIFT_AMOUNT,
-  SHAPESHIFT_SHIFT_SUCCESS
+  SHAPESHIFT_SHIFT_SUCCESS,
+  SHIFT_AMOUNT_LOAD
 } from '../actions/shapeShiftActions'
 
 const initialState = {
@@ -15,21 +15,8 @@ const initialState = {
   coins: [],
   fromSymbol: '(pick litecoin)',
   toSymbol: '(pick bitcoin)',
-  amount: .1,
-  status: {
-    apiPubKey: '',
-    deposit: '',
-    depositAmount: '',
-    expiration: '',
-    maxLimit: '',
-    minerFee: '',
-    orderId: '',
-    pair: '',
-    quotedRate: '',
-    returnAddress: '',
-    withdrawal: '',
-    withdrawalAmount: ''
-  }
+  shiftAmount: .1,
+  status: {}
 }
 
 export default (state = initialState, action) => {
@@ -58,10 +45,10 @@ export default (state = initialState, action) => {
             toSymbol: action.payload.symbol
           }
         }
-        case SET_SHAPESHIFT_AMOUNT: {
+        case SHIFT_AMOUNT_LOAD: {
           return {
             ...state,
-            amount: action.payload.amount
+            shiftAmount: action.payload
           }
         }
         case SHAPESHIFT_SHIFT_SUCCESS: {

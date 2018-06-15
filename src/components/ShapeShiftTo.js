@@ -10,21 +10,21 @@ import Coin from './Coin'
 const mapStateToProps = ({shapeShift, wallet}) => {
   return {
     shapeShift: shapeShift,
-    seed: wallet.seed,
+    mnemonic: wallet.mnemonic,
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleButtonPush: (seed, coin) => {
-          dispatch(generateWalletAddress(seed, coin))
+        handleButtonPush: (mnemonic, coin) => {
+          dispatch(generateWalletAddress(mnemonic, coin))
           dispatch(setShapeShiftToSymbol(coin.symbol))
         }
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps )(
-  ({shapeShift, seed, handleButtonPush, ...rest}) => {
+  ({shapeShift, mnemonic, handleButtonPush, ...rest}) => {
   return (
     <div id="coins">
       ShapeShiftTo.js (Receive)
@@ -37,7 +37,7 @@ export default connect(mapStateToProps, mapDispatchToProps )(
               return (
                 <Coin 
                   key={coin.name}
-                  onClick={() => handleButtonPush(seed, coin)}
+                  onClick={() => handleButtonPush(mnemonic, coin)}
                   {...coin}
                   >
                 </Coin>

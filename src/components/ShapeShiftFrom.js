@@ -10,7 +10,7 @@ import Coin from './Coin'
 
 const mapStateToProps = ({shapeShift, wallet}) => {
   return {
-    seed: wallet.seed,
+    mnemonic: wallet.mnemonic,
     shapeShift: shapeShift,
     withdrawalAddress: wallet.address
   }
@@ -18,14 +18,14 @@ const mapStateToProps = ({shapeShift, wallet}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-      handleButtonPush: (seed, coin) => {
+      handleButtonPush: (mnemonic, coin) => {
           dispatch(setShapeShiftFromSymbol(coin.symbol))
-          dispatch(generateShapeShiftReturnAddress(seed, coin)) 
+          dispatch(generateShapeShiftReturnAddress(mnemonic, coin)) 
         }
     }
 }
 
-const ShapeShiftFrom = ({ seed, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
+const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
   return (
     <div id="shift">
       ShapeShiftFrom.js (Deposit)
@@ -39,7 +39,7 @@ const ShapeShiftFrom = ({ seed, shapeShift, withdrawalAddress, handleButtonPush,
                 return (
                   <Coin 
                     key={coin.name}
-                    onClick={() => handleButtonPush(seed, coin)}
+                    onClick={() => handleButtonPush(mnemonic, coin)}
                     {...coin}
                     >
                   </Coin>
@@ -53,20 +53,3 @@ const ShapeShiftFrom = ({ seed, shapeShift, withdrawalAddress, handleButtonPush,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShapeShiftFrom)
-
-/*
-test('shift', function() {
-    this.timeout(60000);
-    const config = require(__dirname + '/../config/options.js');
-    const elrnClient = new Elrn(config)
-    const withdrawalAddress = '0x7229225164025b545f52a3b4c1dfba6c4e34cb1d'
-    const options = {
-      returnAddress: '1LmoNY5vmDkNKDeRqQwSjLksVzQ9GrZysp',
-      amount: '.01'
-    }
-    return elrnClient.shift(withdrawalAddress, 'BTC_ETH', options)
-    .then((data) => {
-        assert.isNotNull(data.orderId)
-    })
-});
-*/

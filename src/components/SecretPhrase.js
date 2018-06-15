@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Mnemonic from './Mnemonic'
 import MnemonicForm from './MnemonicForm'
+import GenerateWalletSeedButton from './GenerateWalletSeedButton'
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -16,13 +17,13 @@ const SecretPhrase = ({...rest}) => {
     <div>
     SecretPhrase.js
     <br></br>
-    <br></br>
     <Mnemonic></Mnemonic>
-    <br></br>
     <br></br>
     override:
     <br></br>
     <MnemonicForm></MnemonicForm>
+    <br></br>
+    <GenerateWalletSeedButton></GenerateWalletSeedButton>
     </div>
   )
 }

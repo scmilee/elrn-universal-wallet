@@ -11,7 +11,7 @@ export default {
     fontSize: '3vh',
   },
   slideContainer: {
-    height:'50vh',
+    height:'45vh',
     width: '30vw'
   },
   imageProfile:{

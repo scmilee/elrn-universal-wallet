@@ -28,6 +28,7 @@ export default {
       height: '30px',
       width: '250px',
       borderRadius: '5px',
+      borderColor: '#565656',
       backgroundColor: '#565656',
       color: '#bab6b6',
       margin: '5px 30px 5px 0',

@@ -134,6 +134,7 @@ export const generateWalletAddress = (mnemonic, coin) => {
           type: GENERATE_WALLET_ADDRESS_REQUEST,
           payload: {
             mnemonic: mnemonic,
+            derivePath: coin.derivePath,
             coin: coin
           }
         })
@@ -142,7 +143,7 @@ export const generateWalletAddress = (mnemonic, coin) => {
             const elrnClient = new Elrn(config)
             elrnClient.mnemonicToSeed(mnemonic)
             .then((seed) => {
-                return elrnClient.seedToAddress(seed, coin.derivePath, coin.id)
+                return elrnClient.seedToAddress(seed, coin.derivePath,  coin.extension)
             })
             .then((address) => {
                 dispatch({
@@ -181,18 +182,18 @@ export const generateShapeShiftReturnAddress = (mnemonic, coin) => {
             const config = {};
             const elrnClient = new Elrn(config)
             elrnClient.mnemonicToSeed(mnemonic)
-            .then((seed) => elrnClient.seedToAddress(seed, coin.derivePath, coin.id))
+            .then((seed) => {
+                return elrnClient.seedToAddress(seed, coin.derivePath, coin.extension)
+            })
             .then((address) => {
                 dispatch({
                     type: GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS,
                     payload: {
-                      mnemonic: mnemonic,
                       coin: coin.id,
                       derivePath: coin.derivePath,
-                      returnAddress: address
+                      address: address
                     }
                 })
-                dispatch(loadReturnAddress(address))
             })
         }
         catch(error) {
@@ -203,7 +204,6 @@ export const generateShapeShiftReturnAddress = (mnemonic, coin) => {
         }
     }
 }
-
 
 export const SEED_TO_MNEMONIC_ERROR = 'SEED_TO_MNEMONIC_ERROR'
 export const SEED_TO_MNEMONIC_REQUEST = 'SEED_TO_MNEMONIC_REQUEST'

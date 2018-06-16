@@ -75,7 +75,7 @@ export default (state = initialState, action) => {
         case GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS: {
           return {
             ...state,
-            returnAddress: action.payload.returnAddress
+            returnAddress: action.payload.address
           }
         }
         case FETCH_MNEMONIC_ERROR:

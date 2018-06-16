@@ -14,21 +14,20 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 const ApproveShift = ({shapeShift, ...rest}) => {
   return (
     <div>
-      ApproveShift.js
       <br></br>
       <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
       &nbsp;->&nbsp;
       <ShapeShiftToSymbol></ShapeShiftToSymbol>
       <br></br>
-      Withdrawal Address:
+      Withdrawal <ShapeShiftToSymbol></ShapeShiftToSymbol> Address:
       <br></br>
       <WithdrawalAddress></WithdrawalAddress>
       <br></br>
-      Return Address:
+      Return <ShapeShiftFromSymbol></ShapeShiftFromSymbol> Address:
       <br></br>
       <ShapeshiftReturnAddress></ShapeshiftReturnAddress>
       <br></br>
-      Receive Amount:
+      Receive <ShapeShiftToSymbol></ShapeShiftToSymbol> Amount:
       <br></br>
       <ShapeShiftAmountForm></ShapeShiftAmountForm>
       <br></br>

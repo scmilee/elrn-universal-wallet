@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const ApproveShiftButton = ({ withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount, handleApproveShiftButton, ...rest }) => {
   return (
-    <button style={styles.buttonStyle} onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount)}>Approve Shift</button>
+    <button style={styles.buttonStyle} onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount)}>Request Quote</button>
   )
 }
 

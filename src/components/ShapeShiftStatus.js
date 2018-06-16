@@ -19,6 +19,10 @@ const ShapeShiftStatus = ({status, fromSymbol, ...rest}) => {
       send: &nbsp; {status.depositAmount} &nbsp; {fromSymbol}
       <br></br>
       to: &nbsp; {status.deposit} <br></br>
+      Quoted Rate: &nbsp; {status.quotedRate} <br></br>
+      expiration: &nbsp; {status.expiration} <br></br>
+      fee: &nbsp; {status.minerFee} <br></br>
+      expiratio: &nbsp; {status.expiration} <br></br>
     </div>
   )
 }

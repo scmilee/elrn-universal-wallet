@@ -1,6 +1,5 @@
 import Elrn from 'lib-client-elrn-wallet'
 
-
 export const SHIFT_AMOUNT_LOAD = 'SHIFT_AMOUNT_LOAD';
 
 export const loadShiftAmount = (val) => ({ type: SHIFT_AMOUNT_LOAD, payload: val });
@@ -19,6 +18,12 @@ export const fetchShapeShiftCoins = () => {
         .then((data) => {
           const coins = [];
           Object.keys(data).map((coin) => {
+            if (data[coin].derivePath === undefined) {
+                return () => ({})
+            }
+            if (data[coin].status !== "available") {
+                return () => ({})
+            }
             return coins.push(data[coin]);
           })
           dispatch({
@@ -41,7 +46,7 @@ export const SHAPESHIFT_SHIFT_SUCCESS = 'SHAPESHIFT_SHIFT_SUCCESS'
 
 export const shift = (withdrawalAddress, pair, options) => {
   return (dispatch) => {
-    dispatch({ 
+    dispatch({
       type: SHAPESHIFT_SHIFT_REQUEST,
       payload: {
         withdrawalAddress: withdrawalAddress,
@@ -73,7 +78,7 @@ export const SET_SHAPESHIFT_FROM_SYMBOL = 'SET_SHAPESHIFT_FROM_SYMBOL'
 
 export const setShapeShiftFromSymbol = (symbol) => {
   return (dispatch) => {
-    dispatch({ 
+    dispatch({
       type: SET_SHAPESHIFT_FROM_SYMBOL,
       payload: {
         symbol: symbol
@@ -86,7 +91,7 @@ export const SET_SHAPESHIFT_TO_SYMBOL = 'SET_SHAPESHIFT_TO_SYMBOL'
 
 export const setShapeShiftToSymbol = (symbol) => {
   return (dispatch) => {
-    dispatch({ 
+    dispatch({
       type: SET_SHAPESHIFT_TO_SYMBOL,
       payload: {
         symbol: symbol

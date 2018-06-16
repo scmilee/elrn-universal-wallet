@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { shift } from '../actions/shapeShiftActions'
+import styles from '../styles.js'
 
 const mapStateToProps = ({shapeShift, wallet}) => {
   return {
@@ -18,8 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const pair = `${fromSymbol}_${toSymbol}`
       const options = {
         returnAddress: returnAddress,
-        amount: shiftAmount,
-        timeout: 120
+        amount: shiftAmount
       }
       dispatch(shift(withdrawalAddress, pair, options))
     }
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const ApproveShiftButton = ({ withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount, handleApproveShiftButton, ...rest }) => {
   return (
-    <button onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount)}>Approve Shift</button>
+    <button style={styles.buttonStyle} onClick={() => handleApproveShiftButton( withdrawalAddress, fromSymbol, toSymbol, returnAddress, shiftAmount)}>Approve Shift</button>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { putBlockstackMnemonic } from '../actions/walletActions'
+import styles from '../styles.js'
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -18,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const SaveMnemonicButton = ({ mnemonic, handleSaveMnemonicButton, ...rest }) => {
   return (
-    <button onClick={() => handleSaveMnemonicButton( mnemonic )}>save mnemonic</button>
+    <button style={styles.buttonStyle} onClick={() => handleSaveMnemonicButton( mnemonic )}>save passphrase</button>
   )
 }
 

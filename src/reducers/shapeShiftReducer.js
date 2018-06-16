@@ -13,8 +13,8 @@ const initialState = {
   isComplete: false,
   error: null,
   coins: [],
-  fromSymbol: '(pick litecoin)',
-  toSymbol: '(pick bitcoin)',
+  fromSymbol: '?',
+  toSymbol: '?',
   shiftAmount: .1,
   status: {}
 }

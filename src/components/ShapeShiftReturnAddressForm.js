@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { loadReturnAddress } from '../actions/walletActions'
+import styles from '../styles.js'
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -26,6 +27,7 @@ const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChang
           columns="200"
           onChange={handleInputChange}
           placeholder={shapeShiftReturnAddress}
+          style={styles.textAreaStyle}
           >
       </textarea>
     </div>

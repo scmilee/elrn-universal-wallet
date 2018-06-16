@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
       handleButtonPush: (mnemonic, coin) => {
           dispatch(setShapeShiftFromSymbol(coin.symbol))
-          dispatch(generateShapeShiftReturnAddress(mnemonic, coin)) 
+          dispatch(generateShapeShiftReturnAddress(mnemonic, coin))
         }
     }
 }
@@ -28,16 +28,19 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
   return (
     <div id="shift">
-      ShapeShiftFrom.js (Deposit)
+      Deposit Coins
       <br></br>
       <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
+      <br></br>
+      return address:
+      <br></br>
       <ShapeShiftReturnAddressForm></ShapeShiftReturnAddressForm>
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
           <div>
             {(
               shapeShift.coins.map( coin => {
                 return (
-                  <Coin 
+                  <Coin
                     key={coin.name}
                     onClick={() => handleButtonPush(mnemonic, coin)}
                     {...coin}

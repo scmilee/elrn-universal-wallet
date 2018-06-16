@@ -2,7 +2,6 @@ import React from 'react'
 import styles from '../styles.js'
 
 const Coin = ({onClick, id, name, image}) => {
-
   return (
     <div>
         <button

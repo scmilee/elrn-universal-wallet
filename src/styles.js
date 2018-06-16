@@ -28,11 +28,21 @@ export default {
       height: '30px',
       width: '250px',
       borderRadius: '5px',
+      backgroundColor: '#565656',
+      color: '#bab6b6',
       margin: '5px 30px 5px 0',
       padding: '5px 5px',
+  },
+  textAreaStyle: {
+      backgroundColor: '#565656',
+      color: '#bab6b6',
   },
   imgStyle: {
       margin:' 0 10px 0 0',
       height:'100%',
+  },
+  loginPageStyle: {
+      backgroundColor: '#565656',
+      color: '#bab6b6',
   }
 };

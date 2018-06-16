@@ -15,11 +15,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 const SecretPhrase = ({...rest}) => {
   return (
     <div>
-    SecretPhrase.js
     <br></br>
     <Mnemonic></Mnemonic>
     <br></br>
-    override:
+    pass phrase:
     <br></br>
     <MnemonicForm></MnemonicForm>
     <br></br>

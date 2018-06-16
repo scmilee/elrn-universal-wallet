@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const SwipeWallet = ({user, ...rest}) => {
   return (
-    <div id="1" style={Object.assign({}, styles.slide)} >
+    <div style={Object.assign({}, styles.slide)} >
       <SwipeableViews enableMouseEvents>
         <div id="profile"><Profile></Profile></div>
         <div id="secretphrase"><SecretPhrase></SecretPhrase></div>

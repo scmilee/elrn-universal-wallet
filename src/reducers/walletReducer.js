@@ -1,5 +1,3 @@
-
-
 import {
   MNEMONIC_LOAD,
   FETCH_MNEMONIC_ERROR,
@@ -20,9 +18,6 @@ import {
   GENERATE_WALLET_ADDRESS_ERROR,
   GENERATE_WALLET_ADDRESS_REQUEST,
   GENERATE_WALLET_ADDRESS_SUCCESS,
-  ASSET_VIEW_CONTENT_CHANGE_ERROR,
-  ASSET_VIEW_CONTENT_CHANGE_REQUEST,
-  ASSET_VIEW_CONTENT_CHANGE_SUCCESS,
   SET_SHAPESHIFT_RETURN_ADDRESS,
   GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS,
   RETURN_ADDRESS_LOAD,
@@ -71,12 +66,6 @@ export default (state = initialState, action) => {
           }
         case FETCH_MNEMONIC_SUCCESS:
           return { ...state, isFetching: false, ...action.payload}
-        case ASSET_VIEW_CONTENT_CHANGE_ERROR:
-            return { ...state, isCreating: false, error: action.payload }
-        case ASSET_VIEW_CONTENT_CHANGE_REQUEST:
-            return { ...state, isCreating: true }
-        case ASSET_VIEW_CONTENT_CHANGE_SUCCESS:
-          return { ...state, asset: action.payload.value}
         case SET_SHAPESHIFT_RETURN_ADDRESS: {
           return {
             ...state,

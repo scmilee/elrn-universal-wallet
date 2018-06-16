@@ -28,6 +28,8 @@ const ApproveShift = ({shapeShift, ...rest}) => {
       <br></br>
       <ShapeshiftReturnAddress></ShapeshiftReturnAddress>
       <br></br>
+      Receive Amount:
+      <br></br>
       <ShapeShiftAmountForm></ShapeShiftAmountForm>
       <br></br>
       <ApproveShiftButton></ApproveShiftButton>

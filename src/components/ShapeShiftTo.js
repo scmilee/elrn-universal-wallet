@@ -27,7 +27,7 @@ export default connect(mapStateToProps, mapDispatchToProps )(
   ({shapeShift, mnemonic, handleButtonPush, ...rest}) => {
   return (
     <div id="coins">
-      ShapeShiftTo.js (Receive)
+      Receive Coins
       <br></br>
       <ShapeShiftToSymbol></ShapeShiftToSymbol>
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
@@ -35,7 +35,7 @@ export default connect(mapStateToProps, mapDispatchToProps )(
           {(
             shapeShift.coins.map( coin => {
               return (
-                <Coin 
+                <Coin
                   key={coin.name}
                   onClick={() => handleButtonPush(mnemonic, coin)}
                   {...coin}

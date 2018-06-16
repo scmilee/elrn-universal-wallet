@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 const ShapeShiftStatus = ({status, fromSymbol, ...rest}) => {
   return (
     <div>
-      ShapeShiftStatus.js <br></br>
+      <br></br>
       next step:
       <br></br>
       send: &nbsp; {status.depositAmount} &nbsp; {fromSymbol}
@@ -22,7 +22,8 @@ const ShapeShiftStatus = ({status, fromSymbol, ...rest}) => {
       Quoted Rate: &nbsp; {status.quotedRate} <br></br>
       expiration: &nbsp; {status.expiration} <br></br>
       fee: &nbsp; {status.minerFee} <br></br>
-      expiratio: &nbsp; {status.expiration} <br></br>
+      expiration: &nbsp; {status.expiration} <br></br>
+      OrderID: &nbsp; {status.orderId} <br></br>
     </div>
   )
 }

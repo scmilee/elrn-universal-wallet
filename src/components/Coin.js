@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles.js'
 
 const Coin = ({onClick, id, name, image}) => {
-  
+
   return (
     <div>
         <button
@@ -10,7 +10,7 @@ const Coin = ({onClick, id, name, image}) => {
             onClick={onClick}
         >
         <img style={styles.imgStyle} alt={id} src={image}></img>
-            {id}
+            {name}
         </button>
         <br></br>
     </div>

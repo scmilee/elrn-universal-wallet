@@ -18,7 +18,7 @@ const Profile = ({ user, ...rest}) => {
       <br></br>
       <img style={Object.assign({}, styles.imageLogo)} alt='ELRN' src={'https://s3-us-west-2.amazonaws.com/elrn-static-files/elrn.png'}></img>
       <div>
-          <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={(user.profile)?user.profile.profile.image[0].contentUrl:null}></img>
+          <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={(user.profile && user.profile.profile.image != null)?user.profile.profile.image[0].contentUrl:null}></img>
           <p>{user.profile.profile.name || user.profile.username}</p>
           <br></br>
           <br></br>

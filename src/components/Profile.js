@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import LearnerPublicKeyForm from './LearnerPublicKeyForm'
-import Editor from './Editor'
+import styles from '../styles.js'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -9,61 +8,22 @@ const mapStateToProps = ({user}) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    /* commented until we move blockstack errata to lib-elrn-identity-js */
+const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-    handleLookupProfileButton: (user) => {
-      // let options = {
-      //   username: user.profile.username,
-      //   app: 'http://localhost:3000',
-      //   decrypt: false,
-      //   zoneFileLookupUrl: 'http://localhost:6270/v1/names/'
-      // }
-      // blockstack.lookupProfile(user.profile.username)
-      // .then((profileresponse) => alert(profileresponse))
-
-      // blockstack.getFile("walletSeed", options)
-      // .then((fileContents) => {
-      //    // get the contents of the file /message.txt
-      //    // assert(fileContents === "hello world!")
-      //    console.log(fileContents)
-      // });
-      //
-      // blockstack.getFile("learnerPublicKey", options)
-      // .then((fileContents) => {
-      //    // get the contents of the file /message.txt
-      //    // assert(fileContents === "hello world!")
-      //    console.log(fileContents)
-      // });
-      //
-      // blockstack.getUserAppFileUrl('learnerPublicKey',
-      //   'colealbon.id',
-      //   'http://localhost:3000',
-      //   'http://localhost:6270/v1/names/')
-      //   .then((url) => {
-      //     console.log(url);
-      //   })
-      //   blockstack.getUserAppFileUrl('learnerPrivateKey',
-      //     'colealbon.id',
-      //     'http://localhost:3000',
-      //     'http://localhost:6270/v1/names/')
-      //     .then((url) => {
-      //       console.log(url);
-      //     })
-
-    }
-  }
-}
-
-const Profile = ({ user, handleLookupProfileButton , ...rest}) => {
+const Profile = ({ user, ...rest}) => {
   return (
     <div>
-    profile.js
-    <LearnerPublicKeyForm />
-    <Editor />
-    { /*<h2>logged in as:&nbsp;{JSON.stringify(user.profile.profile.name  || {})}</h2> */ }
-    { /*<button onClick={() => handleLookupProfileButton(user)}>lookup profile</button> */ }
+      <br></br>
+      <br></br>
+      <br></br>
+      <img style={Object.assign({}, styles.imageLogo)} alt='ELRN' src={'https://s3-us-west-2.amazonaws.com/elrn-static-files/elrn.png'}></img>
+      <div>
+          <img style={Object.assign({}, styles.imageProfile)}alt='alt' src={(user.profile)?user.profile.profile.image[0].contentUrl:null}></img>
+          <p>{user.profile.profile.name || user.profile.username}</p>
+          <br></br>
+          <br></br>
+          (swipe left)
+      </div>
     </div>
   )
 }

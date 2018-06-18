@@ -3,18 +3,18 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = ({wallet}) => {
   return {
-    seed : wallet.seed
+    returnAddress: wallet.returnAddress
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const WalletSeed = ({ seed , ...rest }) => {
+const ShapeshiftReturnAddress = ({ returnAddress, ...rest }) => {
   return (
     <div>
-    hex seed: {seed.toString('hex')}
+      {returnAddress}
     </div>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WalletSeed)
+export default connect(mapStateToProps, mapDispatchToProps)(ShapeshiftReturnAddress)

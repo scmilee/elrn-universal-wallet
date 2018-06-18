@@ -5,7 +5,7 @@ export default () => {
   return (
     <div className='section'>
       <section className='hero'>
-        <div className='hero-body'>
+        <div>
           <div className='container'>
             <h2 className='title'>
                 ELRN Universal Wallet

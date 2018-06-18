@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { generateWalletSeed } from '../actions/walletActions'
+import styles from '../styles.js'
 
 const mapStateToProps = (state) => state
 
@@ -14,7 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const GenerateWalletSeedButton = ({ handleGenerateWalletSeedButton, ...rest }) => {
   return (
-    <button onClick={() => handleGenerateWalletSeedButton()}>Generate Wallet Seed</button>
+    <button style={styles.buttonStyle} onClick={() => handleGenerateWalletSeedButton()}>new passphrase</button>
   )
 }
 

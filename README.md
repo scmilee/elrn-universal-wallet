@@ -2,7 +2,7 @@
 
 ## installation:
 ~~~~
-git-ssb clone ssb://%+7TAThOHbrqWlh9Oi1zkeMyKVfMmXtkfVp0LYKJogOw=.sha256
+git-ssb clone ssb://%+7TAThOHbrqWlh9Oi1zkeMyKVfMmXtkfVp0LYKJogOw=.sha256 elrn-universal-wallet
 cd elrn-universal-wallet
 npm install
 npm start
@@ -12,6 +12,11 @@ npm start
 - Cole Albon https://keybase.io/colealbon
 - Matti Cone https://keybase.io/matticone
 - Anthony Casson https://keybase.io/ascasson
+
+## inspiration and gratitude
+- https://github.com/brandonparee/blockstack-react-redux-starter
+- https://github.com/cwackerfuss/redux-persist-blockstack
+- https://github.com/iancoleman/bip39
 
 # wallet todo list
 

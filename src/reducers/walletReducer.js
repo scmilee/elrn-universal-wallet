@@ -1,4 +1,11 @@
 import {
+  MNEMONIC_LOAD,
+  FETCH_MNEMONIC_ERROR,
+  FETCH_MNEMONIC_REQUEST,
+  FETCH_MNEMONIC_SUCCESS,
+  PUT_MNEMONIC_ERROR,
+  PUT_MNEMONIC_REQUEST,
+  PUT_MNEMONIC_SUCCESS,
   GENERATE_WALLET_SEED_ERROR,
   GENERATE_WALLET_SEED_REQUEST,
   GENERATE_WALLET_SEED_SUCCESS,
@@ -10,7 +17,10 @@ import {
   MNEMONIC_TO_SEED_SUCCESS,
   GENERATE_WALLET_ADDRESS_ERROR,
   GENERATE_WALLET_ADDRESS_REQUEST,
-  GENERATE_WALLET_ADDRESS_SUCCESS
+  GENERATE_WALLET_ADDRESS_SUCCESS,
+  SET_SHAPESHIFT_RETURN_ADDRESS,
+  GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS,
+  RETURN_ADDRESS_LOAD,
 } from '../actions/walletActions'
 
 const initialState = {
@@ -19,7 +29,7 @@ const initialState = {
   seed: {},
   mnemonic: '',
   error: null,
-  address: {}
+  address: ''
 }
 
 export default (state = initialState, action) => {
@@ -47,14 +57,41 @@ export default (state = initialState, action) => {
         case GENERATE_WALLET_ADDRESS_REQUEST:
             return { ...state, isCreating: true }
         case GENERATE_WALLET_ADDRESS_SUCCESS:
-            return {
-                ...state,
-                isCreating: false,
-                address: {
-                    ...state.address,
-                    [action.payload.name]:action.payload.number
-                }
-            }
+          return {
+            ...state,
+            address: action.payload.address,
+            seed: action.payload.seed,
+            coin: action.payload.coinID,
+            derivePath: action.payload.derivePath
+          }
+        case FETCH_MNEMONIC_SUCCESS:
+          return { ...state, isFetching: false, ...action.payload}
+        case SET_SHAPESHIFT_RETURN_ADDRESS: {
+          return {
+            ...state,
+            returnAddress: action.payload.returnAddress
+          }
+        }
+        case GENERATE_SHAPESHIFT_RETURN_ADDRESS_SUCCESS: {
+          return {
+            ...state,
+            returnAddress: action.payload.address
+          }
+        }
+        case FETCH_MNEMONIC_ERROR:
+          return { ...state, isFetching: false, error: action.payload }
+        case FETCH_MNEMONIC_REQUEST:
+          return { ...state, isFetching: true }
+        case PUT_MNEMONIC_ERROR:
+          return { ...state, isFetching: false, error: action.payload }
+        case PUT_MNEMONIC_REQUEST:
+          return { ...state, isFetching: true }
+        case PUT_MNEMONIC_SUCCESS:
+          return { ...state, isFetching: false, mnemonic: action.payload.mnemonic }
+        case MNEMONIC_LOAD:
+            return { ...state, mnemonic: action.payload };
+        case RETURN_ADDRESS_LOAD:
+            return {...state, returnAddress: action.payload };
         default:
             return state
     }

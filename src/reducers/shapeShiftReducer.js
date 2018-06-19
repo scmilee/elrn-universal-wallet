@@ -4,13 +4,17 @@ import {
   FETCH_SHAPESHIFT_COINS_SUCCESS,
   SET_SHAPESHIFT_FROM_SYMBOL,
   SET_SHAPESHIFT_TO_SYMBOL,
+  SHIFT_AMOUNT_LOAD,
   SHAPESHIFT_SHIFT_SUCCESS,
-  SHIFT_AMOUNT_LOAD
+  SHAPESHIFT_SHIFT_REQUEST,
+  SHAPESHIFT_SHIFT_ERROR,
 } from '../actions/shapeShiftActions'
 
 const initialState = {
   inFlight: false,
   isComplete: false,
+  shiftInFlight: false,
+  shiftSuccess: false,
   error: null,
   coins: [],
   fromSymbol: '?',
@@ -54,7 +58,24 @@ export default (state = initialState, action) => {
         case SHAPESHIFT_SHIFT_SUCCESS: {
           return {
             ...state,
+            shiftInFlight: false,
+            shiftSuccess: true,
             status: action.payload
+          }
+        }
+        case SHAPESHIFT_SHIFT_REQUEST:{
+          return {
+            ...state,
+            shiftInFlight: true,
+            requestDateTime: Math.floor(Date.now() / 1000)
+          }
+        }
+        case SHAPESHIFT_SHIFT_ERROR: {
+          return {
+            ...state,
+            shiftInFlight: false,
+            shiftSuccess: false,
+            status: action.payload,
           }
         }
         default:

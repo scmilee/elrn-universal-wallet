@@ -1,4 +1,4 @@
-import Knockstack from 'lib-client-elrn-identity'
+import Elrn from '../elrn-config/elrn.js'
 
 export const FETCH_USER_DATA = 'FETCH_USER_DATA'
 export const USER_LOGIN = 'USER_LOGIN'
@@ -10,18 +10,17 @@ export const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR'
 
 export const fetchUserData = () => {
   const type = FETCH_USER_DATA
-  const config = {};
-  const elrnIdentity = new Knockstack(config);
-  if (elrnIdentity.isUserSignedIn()) {
-    console.log(elrnIdentity.loadUserData());
+  const elrn = Elrn.instance;
+  if (elrn.isUserSignedIn()) {
+    console.log(elrn.loadUserData());
     return {
       type,
       payload: {
         isAuthenticated: true,
-        profile: elrnIdentity.loadUserData()
+        profile: elrn.loadUserData()
       }
     }
-  } else if (elrnIdentity.isSignInPending()) {
+  } else if (elrn.isSignInPending()) {
     return {
       type,
       payload: {
@@ -35,9 +34,8 @@ export const fetchUserData = () => {
 export const loginWithBlockstack = () => {
   // Open the blockstack browser for sign in
   // After choosing an Id to sign in with, redirect back to the login page
-  const config = {};
-  const elrnIdentity = new Knockstack(config);
-  elrnIdentity.redirectToSignIn(
+  const elrn = Elrn.instance;
+  elrn.redirectToSignIn(
     `${window.location.origin}/handle-login`,
     `${window.location.origin}/manifest.json`,
      ['store_write', 'publish_data'])
@@ -45,9 +43,8 @@ export const loginWithBlockstack = () => {
 }
 
 export const userLogout = () => {
-  const config = {};
-  const elrnIdentity = new Knockstack(config);
-  elrnIdentity.signUserOut()
+  const elrn = Elrn.instance;
+  elrn.signUserOut()
   window.location.replace(`${window.location.origin}/`)
   return { type: USER_LOGOUT }
 }
@@ -62,10 +59,9 @@ export const handleBlockstackLogin = () => {
 
     // Handle sign in from Blockstack after redirect from Blockstack browser
     // Once sign in completes (promise is fulfilled), redirect to an authenticated only route
-    const config = {};
-    const elrnIdentity = new Knockstack(config);
+    const elrn = Elrn.instance;
 
-    return elrnIdentity.handlePendingSignIn()
+    return elrn.handlePendingSignIn()
       .then(
         res => {
           window.location.replace(`${window.location.origin}/`)

@@ -65,6 +65,12 @@ export const shift = (withdrawalAddress, pair, options) => {
             })
 
         })
+        .catch((error) => {
+          dispatch({
+              type: SHAPESHIFT_SHIFT_ERROR,
+              payload: error
+          })
+        })
     } catch(error) {
         dispatch({
             type: SHAPESHIFT_SHIFT_ERROR,

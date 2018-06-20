@@ -1,7 +1,4 @@
-import Elrn from 'lib-client-elrn-wallet'
-
-//import * as blockstack from 'blockstack'
-import Knockstack from 'lib-client-elrn-identity'
+import Elrn from '../elrn-config/elrn.js'
 
 export const FETCH_MNEMONIC_REQUEST = 'FETCH_MNEMONIC_REQUEST'
 export const FETCH_MNEMONIC_SUCCESS = 'FETCH_MNEMONIC_SUCCESS'
@@ -13,10 +10,9 @@ export const PUT_MNEMONIC_ERROR = 'PUT_MNEMONIC_ERROR'
 export const fetchBlockstackMnemonic = () => {
   return (dispatch) => {
   dispatch({ type: FETCH_MNEMONIC_REQUEST })
-  const config = {};
-  const elrnIdentity = new Knockstack(config);
-  if (elrnIdentity.isUserSignedIn()) {
-    return elrnIdentity.getFile('elrnWalletMnemonic', true)
+  const elrn = Elrn.instance;
+  if (elrn.isUserSignedIn()) {
+    return elrn.getFile('elrnWalletMnemonic', true)
       .then(
         mnemonic => {
           if (mnemonic !== null) {
@@ -48,14 +44,14 @@ export const loadShiftAmount = (val) => ({ type: SHIFT_AMOUNT_LOAD, payload: val
 
 export const putBlockstackMnemonic = (mnemonic) => {
   return (dispatch) => {
-    const config = {};
-    const elrnIdentity = new Knockstack(config);
+
+    const elrn = Elrn.instance;
     dispatch({
       type: PUT_MNEMONIC_REQUEST,
       payload: {mnemnonic: mnemonic}
     })
 
-    return elrnIdentity.putFile('elrnWalletMnemonic', mnemonic, true)
+    return elrn.putFile('elrnWalletMnemonic', mnemonic, true)
       .then(() => {
         dispatch({
           type: PUT_MNEMONIC_SUCCESS,
@@ -84,9 +80,9 @@ export const mnemonicToSeed = (mnemonic) => {
             }
         })
         try {
-            const config = {};
-            const elrnClient = new Elrn(config)
-            elrnClient.mnemonicToSeed(mnemonic)
+        
+            const elrn = Elrn.instance
+            elrn.mnemonicToSeed(mnemonic)
             .then((seed) => {
                 dispatch({
                     type: MNEMONIC_TO_SEED_SUCCESS,
@@ -117,9 +113,9 @@ export const generateWalletSeed = () => {
             payload: {}
         })
         try {
-            const config = {};
-            const elrnClient = new Elrn(config)
-            elrnClient.createSeed()
+        
+            const elrn = Elrn.instance
+            elrn.createSeed()
             .then((seed) => dispatch(seedToMnemonic(seed)))
         } catch(error) {
             dispatch({
@@ -145,11 +141,11 @@ export const generateWalletAddress = (mnemonic, coin) => {
           }
         })
         try {
-            const config = {};
-            const elrnClient = new Elrn(config)
-            elrnClient.mnemonicToSeed(mnemonic)
+        
+            const elrn = Elrn.instance
+            elrn.mnemonicToSeed(mnemonic)
             .then((seed) => {
-                return elrnClient.seedToAddress(seed, coin.derivePath,  coin.extension)
+                return elrn.seedToAddress(seed, coin.derivePath,  coin.extension)
             })
             .then((address) => {
                 dispatch({
@@ -185,11 +181,11 @@ export const generateShapeShiftReturnAddress = (mnemonic, coin) => {
           }
         })
         try {
-            const config = {};
-            const elrnClient = new Elrn(config)
-            elrnClient.mnemonicToSeed(mnemonic)
+        
+            const elrn = Elrn.instance
+            elrn.mnemonicToSeed(mnemonic)
             .then((seed) => {
-                return elrnClient.seedToAddress(seed, coin.derivePath, coin.extension)
+                return elrn.seedToAddress(seed, coin.derivePath, coin.extension)
             })
             .then((address) => {
                 dispatch({
@@ -219,9 +215,9 @@ export const seedToMnemonic = (seed) => {
     return (dispatch) => {
         dispatch({ type: SEED_TO_MNEMONIC_REQUEST })
         try {
-            const config = {};
-            const elrnClient = new Elrn(config)
-            elrnClient.seedToMnemonic(seed)
+        
+            const elrn = Elrn.instance
+            elrn.seedToMnemonic(seed)
             .then((mnemonic) => {
                 dispatch({
                     type: SEED_TO_MNEMONIC_SUCCESS,

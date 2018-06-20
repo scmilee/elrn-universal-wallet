@@ -12,7 +12,6 @@ export const fetchUserData = () => {
   const type = FETCH_USER_DATA
   const elrn = Elrn.instance;
   if (elrn.isUserSignedIn()) {
-    console.log(elrn.loadUserData());
     return {
       type,
       payload: {

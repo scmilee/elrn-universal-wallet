@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { loadReturnAddress } from '../actions/walletActions'
 import styles from '../styles.js'
+import QrReader from 'react-qr-reader'
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -14,22 +15,35 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     handleInputChange: (evt) => {
         const val = evt.target.value;
         dispatch(loadReturnAddress(val));
+    },
+    handleQrcScan: (evt) => {
+        //TODO: convert QRC canvas to string for redux tree
+        dispatch(loadReturnAddress(evt))
     }
   }
 }
 
-const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, ...rest }) => {
+const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, handleQrcScan, ...rest }) => {
   return (
     <div>
-      <textarea
-          id="shapeShiftReturnAddress"
-          rows="1"
-          columns="200"
-          onChange={handleInputChange}
-          placeholder={shapeShiftReturnAddress}
-          style={styles.textAreaStyle}
-          >
-      </textarea>
+        <div style={styles.qrcCameraWrapper}>
+          <QrReader
+              delay={5000}
+              onScan={handleQrcScan}
+              onError = {null}
+              style={{ width: '100%' }}
+              />
+        </div>
+        <br/>
+        <textarea
+            id="shapeShiftReturnAddress"
+            rows="2"
+            columns="20"
+            onChange={handleInputChange}
+            placeholder="Enter your Address Here, or use camera for QRC"
+            style={styles.addressInputTextArea}
+            >
+        </textarea>
     </div>
   )
 }

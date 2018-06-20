@@ -45,6 +45,7 @@
     "jest": "20.0.4",
     "keypair": "^1.0.1",
     "lib-client-elrn-wallet": "0.0.18",
+    "lib-client-elrn-identity": "0.0.1",
     "make-dir": "^1.3.0",
     "node-forge": "^0.7.5",
     "node-rsa": "^0.4.2",

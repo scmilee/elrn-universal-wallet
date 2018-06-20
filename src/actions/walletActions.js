@@ -1,6 +1,7 @@
 import Elrn from 'lib-client-elrn-wallet'
 
-import * as blockstack from 'blockstack'
+//import * as blockstack from 'blockstack'
+import Knockstack from 'lib-client-elrn-identity'
 
 export const FETCH_MNEMONIC_REQUEST = 'FETCH_MNEMONIC_REQUEST'
 export const FETCH_MNEMONIC_SUCCESS = 'FETCH_MNEMONIC_SUCCESS'
@@ -12,8 +13,10 @@ export const PUT_MNEMONIC_ERROR = 'PUT_MNEMONIC_ERROR'
 export const fetchBlockstackMnemonic = () => {
   return (dispatch) => {
   dispatch({ type: FETCH_MNEMONIC_REQUEST })
-  if (blockstack.isUserSignedIn()) {
-    return blockstack.getFile('elrnWalletMnemonic', true)
+  const config = {};
+  const elrnIdentity = new Knockstack(config);
+  if (elrnIdentity.isUserSignedIn()) {
+    return elrnIdentity.getFile('elrnWalletMnemonic', true)
       .then(
         mnemonic => {
           if (mnemonic !== null) {
@@ -45,11 +48,14 @@ export const loadShiftAmount = (val) => ({ type: SHIFT_AMOUNT_LOAD, payload: val
 
 export const putBlockstackMnemonic = (mnemonic) => {
   return (dispatch) => {
+    const config = {};
+    const elrnIdentity = new Knockstack(config);
     dispatch({
       type: PUT_MNEMONIC_REQUEST,
       payload: {mnemnonic: mnemonic}
     })
-    return blockstack.putFile('elrnWalletMnemonic', mnemonic, true)
+
+    return elrnIdentity.putFile('elrnWalletMnemonic', mnemonic, true)
       .then(() => {
         dispatch({
           type: PUT_MNEMONIC_SUCCESS,

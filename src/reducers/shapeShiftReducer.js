@@ -5,6 +5,7 @@ import {
   SET_SHAPESHIFT_FROM_SYMBOL,
   SET_SHAPESHIFT_TO_SYMBOL,
   SHIFT_AMOUNT_LOAD,
+  SHAPESHIFT_SHIFT_REQUEST,
   SHAPESHIFT_SHIFT_SUCCESS,
   SHAPESHIFT_SHIFT_ERROR,
   SET_MANUAL_ADDRESS_INPUT
@@ -68,6 +69,8 @@ export default (state = initialState, action) => {
           return {
             ...state,
             manualAddressInput: action.payload.input
+          }
+        }
         case SHAPESHIFT_SHIFT_REQUEST:{
           return {
             ...state,

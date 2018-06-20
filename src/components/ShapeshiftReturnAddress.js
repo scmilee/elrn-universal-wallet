@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+const QRCode = require('qrcode.react');
 
 const mapStateToProps = ({wallet}) => {
   return {
@@ -11,8 +12,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 const ShapeshiftReturnAddress = ({ returnAddress, ...rest }) => {
   return (
-    <div>
+    <div style={Object.assign({},{fontSize:'16px'})}>
       {returnAddress}
+      <br/>
+      {(returnAddress)?<QRCode size={75} value={returnAddress}/>:null}
     </div>
   )
 }

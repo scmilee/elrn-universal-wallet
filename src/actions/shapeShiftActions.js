@@ -99,3 +99,14 @@ export const setShapeShiftToSymbol = (symbol) => {
      })
   }
 }
+
+export const SET_MANUAL_ADDRESS_INPUT = 'SET_MANUAL_ADDRESS_INPUT'
+
+export const setManualAddressInput = (input) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_MANUAL_ADDRESS_INPUT,
+      payload: {input}
+     })
+  }
+}

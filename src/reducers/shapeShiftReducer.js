@@ -16,7 +16,7 @@ const initialState = {
   isComplete: false,
   shiftInFlight: false,
   shiftSuccess: false,
-  error: null,
+  shiftError: '',
   coins: [],
   fromSymbol: '?',
   toSymbol: '?',
@@ -83,7 +83,7 @@ export default (state = initialState, action) => {
             ...state,
             shiftInFlight: false,
             shiftSuccess: false,
-            status: action.payload,
+            shiftError: action.payload.message,
           }
         }
         default:

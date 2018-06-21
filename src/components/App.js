@@ -18,7 +18,7 @@ export const App = ({user, ...rest}) => {
     <main>
           {
             (user.isAuthenticated)
-            ? <Authenticated path='/' exact name='home' component={Secret} />
+            ? <Authenticated path='/' exact name='auth-home' component={Secret} />
             : <Public path='/' exact name='home' component={Home} />
           }
           <Route path='/logout' exact component={Logout} />

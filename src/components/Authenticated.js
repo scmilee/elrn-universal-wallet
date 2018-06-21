@@ -6,7 +6,7 @@ const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-export const Authenticated = ({user, component, ...rest}) => {
+const Authenticated = ({user, component, ...rest}) => {
   return (
     <Route
       {...rest}

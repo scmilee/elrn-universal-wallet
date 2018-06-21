@@ -1,4 +1,4 @@
-import Elrn from '../elrn-config/elrn.js'
+import  Elrn from '../elrn-config/elrn.js'
 
 export const FETCH_MNEMONIC_REQUEST = 'FETCH_MNEMONIC_REQUEST'
 export const FETCH_MNEMONIC_SUCCESS = 'FETCH_MNEMONIC_SUCCESS'

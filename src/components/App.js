@@ -13,7 +13,7 @@ const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const App = ({user, ...rest}) => {
+export const App = ({user, ...rest}) => {
   return (
     <main>
           {

@@ -1,14 +1,14 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
 import TestUtils from 'react-dom/test-utils';
-import Elrn from '../elrn-config/elrn.js'
-import Authenticated from './Authenticated'
-import Public from './Public'
+import Elrn from './../../src/elrn-config/elrn.js'
+import Authenticated from './../../src/components/Authenticated'
+import Public from './../../src/components/Public'
 import * as AppPackage from './App'
-jest.mock('../elrn-config/elrn.js');
-jest.mock('./Public' );
+jest.mock('./../../src/elrn-config/elrn.js');
+jest.mock('./../../src/components/Public' );
 jest.mock('react-router-dom');
-jest.mock('./Authenticated');
+jest.mock('./../../src/components/Authenticated');
 
 //testing just the app, not the connections to redux as well
 const App = AppPackage.App;

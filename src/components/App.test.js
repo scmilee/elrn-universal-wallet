@@ -1,14 +1,14 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
 import TestUtils from 'react-dom/test-utils';
-import Elrn from './../../src/elrn-config/elrn.js'
-import Authenticated from './../../src/components/Authenticated'
-import Public from './../../src/components/Public'
+import Elrn from '../elrn-config/elrn.js'
+import Authenticated from './Authenticated'
+import Public from './Public'
 import * as AppPackage from './App'
-jest.mock('./../../src/elrn-config/elrn.js');
-jest.mock('./../../src/components/Public' );
+jest.mock('../elrn-config/elrn.js');
+jest.mock('./Public' );
 jest.mock('react-router-dom');
-jest.mock('./../../src/components/Authenticated');
+jest.mock('./Authenticated');
 
 //testing just the app, not the connections to redux as well
 const App = AppPackage.App;
@@ -21,12 +21,12 @@ const store = {
 //checks the props of all children of app looking at the specific prop thats passed in 
 //and comparing values to the expected propvalue
 function childrenChecker(children, Prop, propValue) {
-		for (var i = 0; i < children.length; i++) {
-			if (children[i]._fiber.pendingProps[arguments[1]] === propValue) {
-				return true;
-			}
+	for (var i = 0; i < children.length; i++) {
+		if (children[i]._fiber.pendingProps[arguments[1]] === propValue) {
+			return true;
 		}
-		return false;
+	}
+	return false;
 }
 
 describe('App.js', function(){
@@ -40,6 +40,9 @@ describe('App.js', function(){
 		const root = renderer.create(<App user={store.user} />).root.children[0];
 		let childMatch = childrenChecker(root.children, 'name', 'auth-home');
 		expect(childMatch).toBe(true);
+		//make sure the public home component isn't created
+		childMatch = childrenChecker(root.children, 'name', 'home');
+		expect(childMatch).toBe(false);
 	});
 	//testing if the public pathway is hit, by checking the 
 	//pending props of the first element on the page
@@ -48,6 +51,9 @@ describe('App.js', function(){
 		const root = renderer.create(<App user={store.user} />).root.children[0];
 		let childMatch = childrenChecker(root.children, 'name', 'home');
 		expect(childMatch).toBe(true);
+		//make sure authorized component isn't spawned
+		childMatch = childrenChecker(root.children, 'name', 'auth-home');
+		expect(childMatch).toBe(false);
 	});
 	//check for a logout path
 	it('renders logout Component', () => {

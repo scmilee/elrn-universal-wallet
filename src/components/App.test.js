@@ -28,6 +28,8 @@ function childrenChecker(children, Prop, propValue) {
 	}
 	return false;
 }
+//preface these tests by saying that I couldn't get enzymes api to work with finding mocked
+//child components so i had to build by own child finder
 
 describe('App.js', function(){
 	//make sure it can be loaded in

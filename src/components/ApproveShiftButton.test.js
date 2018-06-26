@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { shallow } from 'enzyme'
 import * as ApproveShiftButtonPackage from './ApproveShiftButton.js'
 import configureMockStore from 'redux-mock-store';
 jest.mock('../elrn-config/elrn.js');

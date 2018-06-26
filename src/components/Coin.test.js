@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { shallow } from 'enzyme'
 import Coin from './Coin.js'
 
 let mockFunc = jest.fn();

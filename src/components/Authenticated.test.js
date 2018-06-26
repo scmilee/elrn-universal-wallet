@@ -1,7 +1,7 @@
 import React from 'react'
-import { Redirect, MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import * as AuthenticatedPackage from './Authenticated.js'
-import { shallow, mount, render } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 //mock out shapeshift / blockstack depenencies
 jest.mock('../elrn-config/elrn.js');
 

@@ -10,19 +10,19 @@ const ShiftButton = ApproveShiftButtonPackage.ApproveShiftButton;
 describe('ApproveShiftButton.js', function(){
 	//make sure it can be loaded in
 	it('renders without crashing', () => {
-	  	const button = mount(<ShiftButton/>);
+	  	const button = shallow(<ShiftButton/>);
 	});
 
 	it('calls handleApproveShiftButton when clicked', function(){
 		const mockHandle = jest.fn();
-		const button = mount(<ShiftButton handleApproveShiftButton={mockHandle} />);
+		const button = shallow(<ShiftButton handleApproveShiftButton={mockHandle} />);
 		button.simulate('click');
 		expect(mockHandle).toHaveBeenCalled();
 	});
 
 	it('doesn\'t call handleApproveShiftButton on its own', function() {
 		const mockHandle = jest.fn();
-		const button = mount(<ShiftButton handleApproveShiftButton={mockHandle} />);
+		const button = shallow(<ShiftButton handleApproveShiftButton={mockHandle} />);
 		expect(mockHandle).not.toHaveBeenCalled();
 	});
 });

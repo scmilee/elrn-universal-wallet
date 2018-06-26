@@ -2,28 +2,20 @@ import React from 'react'
 import { Redirect, MemoryRouter } from 'react-router-dom'
 import * as AuthenticatedPackage from './Authenticated.js'
 import { shallow, mount, render } from 'enzyme'
+//mock out shapeshift / blockstack depenencies
 jest.mock('../elrn-config/elrn.js');
 
-
-const Authenticated = AuthenticatedPackage.Authenticated;
+const Authenticated = AuthenticatedPackage.Authenticated; 
 function Foo() {
 	return (<div id= 'foo'/>);
 }
-function childrenChecker(children, Prop, propValue) {
-	for (var i = 0; i < children.length; i++) {
-		console.log(children[i]._fiber);
-		if (children[i]._fiber.pendingProps[arguments[1]] === propValue) {
-			return true;
-		}
-	}
-	return false;
-}
-const store = {
+let store = {
 	user:{
 		isAuthenticated: true
 	}
 }
-describe('Authenticated Route', function(){
+
+describe('Authenticated.js', function(){
 	//make sure it can be loaded in
 	it('renders without crashing', () => {
 	  	const auth = shallow(

@@ -6,12 +6,17 @@ let mockFunc = jest.fn();
 
 describe('Coin.js', function(){
 	//make sure it can be loaded in
+	let mountedCoin, mockFunc;
+
+	beforeEach(() => {
+		mockFunc = jest.fn();
+		mountedCoin = shallow(<Coin onClick={mockFunc}/>);
+	});
 	it('renders without crashing', () => {
-		const mountedCoin = shallow(<Coin onClick={mockFunc}/>);
+		mountedCoin;
 	});
 
-	it('calls its prop function when clicked', () => {	
-		const mountedCoin = mount(<Coin onClick={mockFunc}/>);
+	it('calls its prop function when clicked', () => {
 		mountedCoin.find('button').simulate('click');
 		expect(mockFunc).toHaveBeenCalled();
 	});

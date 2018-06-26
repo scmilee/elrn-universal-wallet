@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const GenerateWalletSeedButton = ({ handleGenerateWalletSeedButton, ...rest }) => {
+ export const GenerateWalletSeedButton = ({ handleGenerateWalletSeedButton, ...rest }) => {
   return (
     <button style={styles.buttonStyle} onClick={() => handleGenerateWalletSeedButton()}>new passphrase</button>
   )

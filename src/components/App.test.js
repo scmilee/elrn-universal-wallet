@@ -1,9 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
 import TestUtils from 'react-dom/test-utils';
-import Elrn from '../elrn-config/elrn.js'
-import Authenticated from './Authenticated'
-import Public from './Public'
 import * as AppPackage from './App'
 jest.mock('../elrn-config/elrn.js');
 jest.mock('./Public' );

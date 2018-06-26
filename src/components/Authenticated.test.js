@@ -1,0 +1,57 @@
+import React from 'react'
+import { Redirect, MemoryRouter } from 'react-router-dom'
+import * as AuthenticatedPackage from './Authenticated.js'
+import { shallow, mount, render } from 'enzyme'
+jest.mock('../elrn-config/elrn.js');
+
+
+const Authenticated = AuthenticatedPackage.Authenticated;
+function Foo() {
+	return (<div id= 'foo'/>);
+}
+function childrenChecker(children, Prop, propValue) {
+	for (var i = 0; i < children.length; i++) {
+		console.log(children[i]._fiber);
+		if (children[i]._fiber.pendingProps[arguments[1]] === propValue) {
+			return true;
+		}
+	}
+	return false;
+}
+const store = {
+	user:{
+		isAuthenticated: true
+	}
+}
+describe('Authenticated Route', function(){
+	//make sure it can be loaded in
+	it('renders without crashing', () => {
+	  	const auth = shallow(
+		  	<MemoryRouter initialEntries={['/']} initialIndex={0}>
+		  		<Authenticated user={store.user} component = {Foo}/>
+		  	</MemoryRouter>
+	  	);
+	});
+	it('loads the Secret Foo component if the user is Authenticated', function(){
+
+		const mountedComponent = mount(
+			<MemoryRouter initialEntries={['/']} initialIndex={0}>
+		  		<Authenticated user={store.user} component = {Foo}/>
+		  	</MemoryRouter>
+	  	);
+	  	expect(mountedComponent.find('#foo')).toHaveLength(1);
+	  	mountedComponent.unmount();
+
+	});
+	it('redirects to logout if the user isn\'t Authenticated', function(){
+		store.user.isAuthenticated = false;
+		const mountedComponent = mount(
+			<MemoryRouter initialEntries={['/']} initialIndex={0}>
+		  		<Authenticated user={store.user} component = {Foo}/>
+		  	</MemoryRouter>
+	  	);
+	  	expect(mountedComponent.find('#foo')).toHaveLength(0);
+	  	mountedComponent.unmount();
+	});
+
+});

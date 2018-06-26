@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const HandleLogin = ({user, handlePendingSignIn, ...rest}) => {
+export const HandleLogin = ({user, handlePendingSignIn, ...rest}) => {
   if (user.isLoginPending) {
     handlePendingSignIn()
   }

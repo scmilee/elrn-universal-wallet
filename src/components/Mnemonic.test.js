@@ -18,8 +18,8 @@ describe('Mnemonic.js', function(){
 		mountedMnemonic;
 	});
 
-	it('correctly displays its prop Mnemonic inside a div', () => {
-		expect(mountedMnemonic.find('div').text()).toEqual(mnemonicPayload);
+	it('correctly displays its prop Mnemonic', () => {
+		expect(mountedMnemonic.text()).toEqual(mnemonicPayload);
 	});
 
 });

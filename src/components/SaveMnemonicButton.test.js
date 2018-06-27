@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import * as MnemonicButtonPackage from './SaveMnemonicButton.js'
 //mock out shapeshift / blockstack depenencies
 jest.mock('../elrn-config/elrn.js');
+jest.mock('../styles.js');
 
 let mockFunc = jest.fn();
 let MnemonicButton = MnemonicButtonPackage.SaveMnemonicButton

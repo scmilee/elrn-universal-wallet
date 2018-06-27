@@ -6,7 +6,7 @@ const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const Secret = ({user, ...rest}) => {
+export const Secret = ({user, ...rest}) => {
   return (
       <div>
         {

@@ -12,7 +12,6 @@ let store = {
 describe('HandleLogin', function(){
 	let mountedHandleLogin, mockFunc;
 	
-
 	beforeEach(() => {
 		mockFunc = jest.fn();
 		mountedHandleLogin = shallow(<HandleLogin user={store.user} handlePendingSignIn={mockFunc}/>);

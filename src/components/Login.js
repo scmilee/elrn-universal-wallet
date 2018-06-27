@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const Login = ({onClick, ...rest}) => {
+export const Login = ({onClick, ...rest}) => {
   return (
     <div className='Login'>
       <button style={styles.buttonStyle} onClick={onClick}>Log In</button>

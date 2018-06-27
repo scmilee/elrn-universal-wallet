@@ -18,6 +18,10 @@ describe('GenerateWalletSeedButton.js', function(){
 		mountedButton;
 	});
 
+	it('doesn\'t call the handler by itself', () => {
+		expect(mockFunc).not.toHaveBeenCalled();
+	});
+
 	it('calls its prop function when clicked', () => {	
 		mountedButton.find('button').simulate('click');
 		expect(mockFunc).toHaveBeenCalled();

@@ -10,7 +10,7 @@ const mapStateToProps = ({user}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const Profile = ({ user, ...rest}) => {
+export const Profile = ({ user, ...rest}) => {
   return (
     <div>
       <br></br>

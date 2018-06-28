@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
+export const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
   return (
     <div id="shift">
       Deposit Coins

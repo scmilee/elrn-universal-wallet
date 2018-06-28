@@ -12,7 +12,7 @@ const mapStateToProps = ({wallet}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const SecretPhrase = ({...rest}) => {
+export const SecretPhrase = ({...rest}) => {
   return (
     <div>
     <br></br>

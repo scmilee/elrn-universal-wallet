@@ -23,8 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(
-  ({shapeShift, mnemonic, handleButtonPush, ...rest}) => {
+export  const ShapeShiftTo = ({shapeShift, mnemonic, handleButtonPush, ...rest}) => {
   return (
     <div id="coins">
       Receive Coins
@@ -48,4 +47,5 @@ export default connect(mapStateToProps, mapDispatchToProps )(
       </SwipeableViews>
     </div>
   )
-})
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ShapeShiftTo)

@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const Logout = ({user, handleLogout, ...rest}) => {
+export const Logout = ({user, handleLogout, ...rest}) => {
   if (user.isAuthenticated) {
     handleLogout()
   }

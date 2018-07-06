@@ -9,7 +9,7 @@ const mapStateToProps = ({wallet}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const Mnemonic = ({ mnemonic, ...rest }) => {
+export const Mnemonic = ({ mnemonic, ...rest }) => {
   return (
     <div>
       {mnemonic}

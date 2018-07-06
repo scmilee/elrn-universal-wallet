@@ -29,7 +29,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush,manualAddressInputSelector, ...rest}) => {
+
+export const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
+
   return (
     <div id="shift">
       Exchange

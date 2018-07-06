@@ -23,7 +23,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, handleQrcScan, ...rest }) => {
+
+export const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, ...rest }) => {
+
   return (
     <div>
         <div style={styles.qrcCameraWrapper}>

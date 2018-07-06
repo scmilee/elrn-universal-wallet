@@ -1,4 +1,4 @@
-import Elrn from 'lib-client-elrn-wallet'
+import Elrn from '../elrn-config/elrn.js'
 
 export const SHIFT_AMOUNT_LOAD = 'SHIFT_AMOUNT_LOAD';
 
@@ -12,8 +12,7 @@ export const fetchShapeShiftCoins = () => {
   return (dispatch) => {
     dispatch({ type: FETCH_SHAPESHIFT_COINS_REQUEST })
     try {
-        const config = {};
-        const elrnClient = new Elrn(config)
+        const elrnClient = Elrn.instance;
         elrnClient.coins()
         .then((data) => {
           const coins = [];
@@ -55,8 +54,7 @@ export const shift = (withdrawalAddress, pair, options) => {
       }
      })
     try {
-        const config = {};
-        const elrnClient = new Elrn(config)
+        const elrnClient = Elrn.instance;
         elrnClient.shift(withdrawalAddress, pair, options)
         .then((data) => {
             dispatch({

@@ -11,7 +11,7 @@ const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const ApproveShift = ({shapeShift, ...rest}) => {
+export const ApproveShift = ({shapeShift, ...rest}) => {
   return (
     <div style={Object.assign({},{fontSize:'24px'})}>
       <br></br>

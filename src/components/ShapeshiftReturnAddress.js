@@ -10,7 +10,7 @@ const mapStateToProps = ({wallet}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const ShapeshiftReturnAddress = ({ returnAddress, ...rest }) => {
+export const ShapeshiftReturnAddress = ({ returnAddress, ...rest }) => {
   return (
     <div style={Object.assign({},{fontSize:'16px'})}>
       {returnAddress}

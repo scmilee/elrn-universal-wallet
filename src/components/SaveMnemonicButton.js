@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const SaveMnemonicButton = ({ mnemonic, handleSaveMnemonicButton, ...rest }) => {
+export const SaveMnemonicButton = ({ mnemonic, handleSaveMnemonicButton, ...rest }) => {
   return (
     <button style={styles.buttonStyle} onClick={() => handleSaveMnemonicButton( mnemonic )}>Save Passphrase</button>
   )

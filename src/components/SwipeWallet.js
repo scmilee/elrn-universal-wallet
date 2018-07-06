@@ -13,7 +13,7 @@ import styles from '../styles'
 const mapStateToProps = (state) => state
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const SwipeWallet = ({user, ...rest}) => {
+export const SwipeWallet = ({user, ...rest}) => {
   return (
     <div style={Object.assign({}, styles.slide)} >
       <SwipeableViews enableMouseEvents>

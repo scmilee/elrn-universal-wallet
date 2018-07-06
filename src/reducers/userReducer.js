@@ -5,11 +5,13 @@ import {
   USER_LOGOUT,
   USER_HANDLE_LOGIN,
   USER_LOGGED_IN,
-  USER_LOGIN_ERROR
+  USER_LOGIN_ERROR,
+  USER_MASTER_TOGGLE
 } from '../actions/userActions'
 
 const initialState = {
   isAuthenticated: false,
+  isMaster: false,
   isLoginPending: false,
   profile: {},
   error: null
@@ -36,6 +38,9 @@ export default (state = initialState, action) => {
       }
     case USER_LOGIN_ERROR:
       return { ...state, error: action.payload }
+    case USER_MASTER_TOGGLE:
+      return{...state, isMaster: !state.isMaster }
+
     default:
       return state
   }

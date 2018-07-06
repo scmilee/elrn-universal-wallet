@@ -7,6 +7,9 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 export const USER_HANDLE_LOGIN = 'USER_HANDLE_LOGIN'
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 export const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR'
+export const USER_MASTER_TOGGLE = 'USER_MASTER_TOGGLE'
+
+
 
 export const fetchUserData = () => {
   const type = FETCH_USER_DATA
@@ -50,6 +53,10 @@ export const userLogout = () => {
 
 export const userLoginError = (error) => {
   return { type: USER_LOGIN_ERROR, payload: error }
+}
+
+export const userToggleMaster = () => {
+  return { type: USER_MASTER_TOGGLE}
 }
 
 export const handleBlockstackLogin = () => {

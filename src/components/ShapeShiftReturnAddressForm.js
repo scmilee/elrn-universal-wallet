@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 
-export const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, ...rest }) => {
+export const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, handleQrcScan, ...rest }) => {
 
   return (
     <div>

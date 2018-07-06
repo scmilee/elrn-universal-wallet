@@ -13,7 +13,7 @@ const mapStateToProps = ({shapeShift}) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 
-export const ShapeShiftStatus = ({status, fromSymbol, shiftInFlight, requestDateTime, ...rest}) => {
+export const ShapeShiftStatus = ({status, shiftError, fromSymbol, shiftInFlight, requestDateTime, ...rest}) => {
 
 
   if (status.orderId) {

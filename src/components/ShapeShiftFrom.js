@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 
-export const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
+export const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, manualAddressInputSelector, ...rest}) => {
 
   return (
     <div id="shift">

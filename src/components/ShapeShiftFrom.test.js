@@ -13,7 +13,8 @@ let btc = {
 	name: 'btc'
 }
 const shapeShiftState = { 
-  coins: [btc]
+  coins: [btc],
+  manualAddressInput: false
 }
 
 const ShapeShiftFrom = ShapeShiftFromPackage.ShapeShiftFrom;
@@ -24,6 +25,7 @@ describe('ShapeShiftFrom.js', function(){
 	let mountedShapeShiftFrom, mockFunc; 
 
 	beforeEach(() => {
+		shapeShiftState.manualAddressInput = false;
 		mockFunc = jest.fn();
 		mountedShapeShiftFrom = shallow(<ShapeShiftFrom  handleButtonPush={mockFunc} shapeShift={shapeShiftState}/>);
 	});
@@ -36,6 +38,8 @@ describe('ShapeShiftFrom.js', function(){
 	});
 
 	it('spawns a ShapeShiftReturnAddressForm component', () => {
+		shapeShiftState.manualAddressInput = true;
+		mountedShapeShiftFrom = shallow(<ShapeShiftFrom  handleButtonPush={mockFunc} shapeShift={shapeShiftState}/>);
 		expect(mountedShapeShiftFrom.find(ShapeShiftReturnAddressForm)).toHaveLength(1);
 	});
 

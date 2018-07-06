@@ -19,7 +19,7 @@ describe('ShapeshiftReturnAddress.js', function(){
 	});
 
 	it('correctly displays its prop ShapeshiftReturnAddress', () => {
-		expect(mountedShapeshiftReturnAddress.text()).toEqual(mnemonicPayload);
+		expect(mountedShapeshiftReturnAddress.text()).toContain(mnemonicPayload);
 	});
 
 });

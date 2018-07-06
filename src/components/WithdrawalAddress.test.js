@@ -19,7 +19,7 @@ describe('WithdrawalAddress.js', function(){
 	});
 
 	it('correctly displays its prop WithdrawalAddress', () => {
-		expect(mountedWithdrawalAddress.text()).toEqual(addressPayload);
+		expect(mountedWithdrawalAddress.text()).toContain(addressPayload);
 	});
 
 });

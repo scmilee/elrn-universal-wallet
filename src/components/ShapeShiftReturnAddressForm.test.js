@@ -4,6 +4,7 @@ import * as ShapeShiftReturnAddressFormPackage from './ShapeShiftReturnAddressFo
 
 jest.mock('../styles.js');
 jest.mock('../elrn-config/elrn.js');
+jest.mock('react-qr-reader');
 
 const ShapeShiftReturnAddressForm = ShapeShiftReturnAddressFormPackage.ShapeShiftReturnAddressForm;
 let mockFunc = jest.fn();
@@ -19,10 +20,6 @@ describe('ShapeShiftReturnAddressForm.js', function(){
 	});
 	it('renders without crashing', () => {
 		mountedShapeShiftReturnAddressForm;
-	});
-
-	it('correctly displays its prop Mnemonic inside a textarea as a placeholder', () => {
-		expect(mountedShapeShiftReturnAddressForm.find({placeholder: addressPayload})).toHaveLength(1);
 	});
 
 	it('doesn\'t handle input change when no input has been given', () => {

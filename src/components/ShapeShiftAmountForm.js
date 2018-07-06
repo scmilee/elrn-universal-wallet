@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const ShapeShiftAmountForm = ({ shiftAmount, handleInputChange, ...rest }) => {
+export const ShapeShiftAmountForm = ({ shiftAmount, handleInputChange, ...rest }) => {
   return (
     <div>
       <textarea

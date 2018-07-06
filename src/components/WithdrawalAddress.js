@@ -10,7 +10,7 @@ const mapStateToProps = ({wallet}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const WithdrawalAddress = ({ address, ...rest }) => {
+export const WithdrawalAddress = ({ address, ...rest }) => {
   return (
     <div style={Object.assign({},{fontSize:'16px'})}>
       {address}

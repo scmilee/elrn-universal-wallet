@@ -9,7 +9,7 @@ const mapStateToProps = ({shapeShift}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
-const ShapeShiftFromSymbol = ({ shapeShiftFromSymbol, ...rest }) => {
+export const ShapeShiftFromSymbol = ({ shapeShiftFromSymbol, ...rest }) => {
   return (
     <span>
       {shapeShiftFromSymbol}

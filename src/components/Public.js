@@ -7,7 +7,7 @@ const mapStateToProps = (state) => state
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 // Public routes are only accessible when not signed in with Blockstack
-const Public = ({user, component, ...rest}) => {
+export const Public = ({user, component, ...rest}) => {
   return (
     <Route
       {...rest}

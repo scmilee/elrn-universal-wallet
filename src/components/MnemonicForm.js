@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const MnemonicForm = ({ mnemonic, handleInputChange, ...rest }) => {
+export const MnemonicForm = ({ mnemonic, handleInputChange, ...rest }) => {
   return (
     <div>
       <textarea

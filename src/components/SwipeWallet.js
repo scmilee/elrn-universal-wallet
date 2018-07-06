@@ -8,17 +8,25 @@ import ShapeShiftTo from './ShapeShiftTo'
 import ShapeShiftApproveShift from './ShapeShiftApproveShift'
 import SecretPhrase from './SecretPhrase'
 import ShapeShiftStatus from './ShapeShiftStatus'
+import MasterAccount from './MasterAccount'
 import styles from '../styles'
 
 const mapStateToProps = (state) => state
 const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 export const SwipeWallet = ({user, ...rest}) => {
+  const isMasterWallet = user.isMaster;
+
   return (
     <div style={Object.assign({}, styles.slide)} >
       <SwipeableViews enableMouseEvents>
         <div id="profile"><Profile></Profile></div>
         <div id="secretphrase"><SecretPhrase></SecretPhrase></div>
+        {isMasterWallet ? (
+          <div id="masteraccount"><MasterAccount/></div>
+        ) : (   
+          <div id="childaccount">Child</div>
+        )}
         <div id="shapeShiftFrom"><ShapeShiftFrom></ShapeShiftFrom></div>
         <div id="shapeShiftTo"><ShapeShiftTo></ShapeShiftTo></div>
         <div id="approve"><ShapeShiftApproveShift></ShapeShiftApproveShift></div>

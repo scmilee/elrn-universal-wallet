@@ -19,12 +19,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     handleQrcScan: (evt) => {
         //TODO: convert QRC canvas to string for redux tree
         dispatch(loadReturnAddress(evt))
+    },
+    errorQrcScan: (error) => {
+      console.log(error);
     }
   }
 }
 
-
-export const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, handleQrcScan, ...rest }) => {
+export const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInputChange, handleQrcScan, errorQrcScan, ...rest }) => {
 
   return (
     <div>
@@ -32,7 +34,7 @@ export const ShapeShiftReturnAddressForm = ({ shapeShiftReturnAddress, handleInp
           <QrReader
               delay={5000}
               onScan={handleQrcScan}
-              onError = {null}
+              onError = {errorQrcScan}
               style={{ width: '100%' }}
               />
         </div>

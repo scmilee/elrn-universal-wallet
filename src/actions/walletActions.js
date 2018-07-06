@@ -236,3 +236,45 @@ export const seedToMnemonic = (seed) => {
         }
     }
 }
+
+export const GENERATE_ACCOUNT_ADDRESS_REQUEST = 'GENERATE_ACCOUNT_ADDRESS_REQUEST'
+export const GENERATE_ACCOUNT_ADDRESS_SUCCESS = 'GENERATE_ACCOUNT_ADDRESS_SUCCESS'
+export const GENERATE_ACCOUNT_ADDRESS_ERROR = 'GENERATE_ACCOUNT_ADDRESS_ERROR'
+
+export const generateAccountAddress = (mnemonic , accountCount) => {
+    return (dispatch) => {
+        dispatch({ type: GENERATE_ACCOUNT_ADDRESS_REQUEST })
+        try {
+            const elrn = Elrn.instance
+            elrn.mnemonicToSeed(mnemonic)
+            .then((seed) => {
+              const rootNode = elrn.seedToRoot(seed);   
+              const path = 'm/44\'/0\'/0\'/0/0';
+              elrn.masterRootToAccountPrivKey(rootNode, path, accountCount)
+              .then((address)=>{
+                  dispatch({
+                      type: GENERATE_ACCOUNT_ADDRESS_SUCCESS,
+                      payload: {
+                        address: address
+                      }
+                  })
+              })  
+          })
+            
+        } catch(error) {
+            dispatch({
+                type: GENERATE_ACCOUNT_ADDRESS_ERROR,
+                payload: error
+            })
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

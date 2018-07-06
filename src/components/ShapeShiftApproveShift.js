@@ -13,25 +13,25 @@ const mapDispatchToProps = (dispatch, ownProps) => ({})
 
 export const ApproveShift = ({shapeShift, ...rest}) => {
   return (
-    <div>
+    <div style={Object.assign({},{fontSize:'24px'})}>
       <br></br>
-      <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
+      <ShapeShiftFromSymbol/>
       &nbsp;->&nbsp;
-      <ShapeShiftToSymbol></ShapeShiftToSymbol>
+      <ShapeShiftToSymbol/>
       <br></br>
-      Withdrawal <ShapeShiftToSymbol></ShapeShiftToSymbol> Address:
+      Exchange <ShapeShiftFromSymbol/> from Address:
       <br></br>
-      <WithdrawalAddress></WithdrawalAddress>
+      <ShapeshiftReturnAddress/>
       <br></br>
-      Return <ShapeShiftFromSymbol></ShapeShiftFromSymbol> Address:
+      Receive <ShapeShiftToSymbol/> at Address:
       <br></br>
-      <ShapeshiftReturnAddress></ShapeshiftReturnAddress>
+      <WithdrawalAddress/>
       <br></br>
-      Receive <ShapeShiftToSymbol></ShapeShiftToSymbol> Amount:
+      Receive <ShapeShiftToSymbol/> Amount:
       <br></br>
-      <ShapeShiftAmountForm></ShapeShiftAmountForm>
+      <ShapeShiftAmountForm/>
       <br></br>
-      <ApproveShiftButton></ApproveShiftButton>
+      <ApproveShiftButton/>
     </div>
   )
 }

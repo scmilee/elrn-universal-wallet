@@ -63,6 +63,12 @@ export const shift = (withdrawalAddress, pair, options) => {
             })
 
         })
+        .catch((error) => {
+          dispatch({
+              type: SHAPESHIFT_SHIFT_ERROR,
+              payload: error
+          })
+        })
     } catch(error) {
         dispatch({
             type: SHAPESHIFT_SHIFT_ERROR,
@@ -94,6 +100,17 @@ export const setShapeShiftToSymbol = (symbol) => {
       payload: {
         symbol: symbol
       }
+     })
+  }
+}
+
+export const SET_MANUAL_ADDRESS_INPUT = 'SET_MANUAL_ADDRESS_INPUT'
+
+export const setManualAddressInput = (input) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_MANUAL_ADDRESS_INPUT,
+      payload: {input}
      })
   }
 }

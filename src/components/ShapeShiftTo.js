@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export  const ShapeShiftTo = ({shapeShift, mnemonic, handleButtonPush, ...rest}) => {
   return (
     <div id="coins">
-      Receive Coins
+      Receive
       <br></br>
       <ShapeShiftToSymbol></ShapeShiftToSymbol>
       <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>

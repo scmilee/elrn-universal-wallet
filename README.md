@@ -2,7 +2,7 @@
 
 ## installation:
 ~~~~
-git-ssb clone ssb://%+7TAThOHbrqWlh9Oi1zkeMyKVfMmXtkfVp0LYKJogOw=.sha256 elrn-universal-wallet
+git clone git@github.com:cbtnuggets/elrn-universal-wallet.git
 cd elrn-universal-wallet
 npm install
 npm start
@@ -12,6 +12,7 @@ npm start
 - Cole Albon https://keybase.io/colealbon
 - Matti Cone https://keybase.io/matticone
 - Anthony Casson https://keybase.io/ascasson
+- Dylan Drudge https://keybase.io/scmile
 
 ## inspiration and gratitude
 - https://github.com/brandonparee/blockstack-react-redux-starter
@@ -42,8 +43,8 @@ npm start
 - task: display wallet amount (table below)
 - task: send money (table below)
 - task: send custom token
-- task: qr code reader
-- task: display qr code?
+- ~~task: qr code reader~~
+- ~~task: display qr code?~~
 - task: create a shapeshift trade
 - task: display a shapeshift trade
 - task: display current shapeshift estimated prices
@@ -70,50 +71,50 @@ npm start
 | Vertcoin | coininfo | x | x |
 | Zcash | coininfo | x | x |
 | FirstBlood | x | x | x |
-| Aragon | x | x | x |
-| Bancor | x | x | x |
+| Aragon | done | x | x |
+| Bancor | done | x | x |
 | Bitcoin Cash | x | x | x |
-| Bitcoin Gold | x | x | x |
-| Civic | x | x | x |
-| Clams | x | x | x |
-| district0x | x | x | x |
+| Bitcoin Gold | done | x | x |
+| Civic | done | x | x |
+| Clams | done | x | x |
+| district0x | done | x | x |
 | Ether | x | x | x |
 | Ether Classic | x | x | x |
 | Factoids | x | x | x |
 | GameCredits | x | x | x |
 | Gnosis | x | x | x |
-| Golem | x | x | x |
-| Matchpool | x | x | x |
-| Komodo | x | x | x |
-| LBRY Credits | x | x | x |
+| Golem | done | x | x |
+| Matchpool | done | x | x |
+| Komodo | done | x | x |
+| LBRY Credits | done | x | x |
 | Lisk | x | x | x |
 | Maidsafe | x | x | x |
 | Omni | x | x | x |
 | Neo | x | x | x |
 | NEM | x | x | x |
-| Numeraire | x | x | x |
+| Numeraire | done | x | x |
 | Novacoin | x | x | x |
 | Nxt | x | x | x |
-| OmiseGo | x | x | x |
-| Potcoin | x | x | x |
+| OmiseGo | done | x | x |
+| Potcoin | done | x | x |
 | Augur | x | x | x |
 | RCN | x | x | x |
-| iExec | x | x | x |
-| Salt | x | x | x |
+| iExec | done | x | x |
+| Salt | done | x | x |
 | Siacoin | x | x | x |
-| Status | x | x | x |
-| Storj | x | x | x |
+| Status | done | x | x |
+| Storj | done | x | x |
 | Startcoin | x | x | x |
 | Steem | x | x | x |
-| Swarm City | x | x | x |
+| Swarm City | done | x | x |
 | WeTrust | x | x | x |
 | Tether | x | x | x |
 | Voxels | x | x | x |
 | Vericoin | x | x | x |
-| Wings | x | x | x |
+| Wings | done | x | x |
 | Monero | x | x | x |
 | Ripple | x | x | x |
-| 0x | x | x | x |
+| 0x | done | x | x |
 
 
 ## todo map key

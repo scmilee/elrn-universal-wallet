@@ -5,9 +5,10 @@ import {
   SET_SHAPESHIFT_FROM_SYMBOL,
   SET_SHAPESHIFT_TO_SYMBOL,
   SHIFT_AMOUNT_LOAD,
-  SHAPESHIFT_SHIFT_SUCCESS,
   SHAPESHIFT_SHIFT_REQUEST,
+  SHAPESHIFT_SHIFT_SUCCESS,
   SHAPESHIFT_SHIFT_ERROR,
+  SET_MANUAL_ADDRESS_INPUT
 } from '../actions/shapeShiftActions'
 
 const initialState = {
@@ -15,11 +16,12 @@ const initialState = {
   isComplete: false,
   shiftInFlight: false,
   shiftSuccess: false,
-  error: null,
+  shiftError: '',
   coins: [],
   fromSymbol: '?',
   toSymbol: '?',
   shiftAmount: .1,
+  manualAddressInput: false,
   status: {}
 }
 
@@ -63,6 +65,12 @@ export default (state = initialState, action) => {
             status: action.payload
           }
         }
+        case SET_MANUAL_ADDRESS_INPUT: {
+          return {
+            ...state,
+            manualAddressInput: action.payload.input
+          }
+        }
         case SHAPESHIFT_SHIFT_REQUEST:{
           return {
             ...state,
@@ -75,7 +83,7 @@ export default (state = initialState, action) => {
             ...state,
             shiftInFlight: false,
             shiftSuccess: false,
-            status: action.payload,
+            shiftError: action.payload.message,
           }
         }
         default:

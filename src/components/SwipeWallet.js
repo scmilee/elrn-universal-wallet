@@ -19,8 +19,8 @@ export const SwipeWallet = ({user, ...rest}) => {
       <SwipeableViews enableMouseEvents>
         <div id="profile"><Profile></Profile></div>
         <div id="secretphrase"><SecretPhrase></SecretPhrase></div>
-        <div id="shapeShiftTo"><ShapeShiftTo></ShapeShiftTo></div>
         <div id="shapeShiftFrom"><ShapeShiftFrom></ShapeShiftFrom></div>
+        <div id="shapeShiftTo"><ShapeShiftTo></ShapeShiftTo></div>
         <div id="approve"><ShapeShiftApproveShift></ShapeShiftApproveShift></div>
         <div id="status"><ShapeShiftStatus></ShapeShiftStatus></div>
         <div id="logout"><br></br><br></br><NavLink to='/logout'>Logout</NavLink></div>

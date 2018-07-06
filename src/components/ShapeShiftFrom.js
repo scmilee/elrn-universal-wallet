@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import SwipeableViews from 'react-swipeable-views'
-import { setShapeShiftFromSymbol } from '../actions/shapeShiftActions'
+import { setShapeShiftFromSymbol, setManualAddressInput } from '../actions/shapeShiftActions'
 import ShapeShiftFromSymbol from './ShapeShiftFromSymbol'
 import ShapeShiftReturnAddressForm from './ShapeShiftReturnAddressForm'
 import { generateShapeShiftReturnAddress } from '../actions/walletActions'
@@ -21,36 +21,55 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       handleButtonPush: (mnemonic, coin) => {
           dispatch(setShapeShiftFromSymbol(coin.symbol))
           dispatch(generateShapeShiftReturnAddress(mnemonic, coin))
-        }
+      },
+      manualAddressInputSelector: (bool) => {
+          dispatch(setManualAddressInput(bool))
+          dispatch(setShapeShiftFromSymbol('?'))
+      }
     }
 }
 
+
 export const ShapeShiftFrom = ({ mnemonic, shapeShift, withdrawalAddress, handleButtonPush, ...rest}) => {
+
   return (
     <div id="shift">
-      Deposit Coins
+      Exchange
       <br></br>
-      <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
-      <br></br>
-      return address:
-      <br></br>
-      <ShapeShiftReturnAddressForm></ShapeShiftReturnAddressForm>
-      <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
-          <div>
-            {(
-              shapeShift.coins.map( coin => {
-                return (
-                  <Coin
-                    key={coin.name}
-                    onClick={() => handleButtonPush(mnemonic, coin)}
-                    {...coin}
-                    >
-                  </Coin>
-                )
-              })
-            )}
-          </div>
-      </SwipeableViews>
+      <button
+          style={styles.buttonStyle}
+          onClick={() => manualAddressInputSelector(false)}
+      >
+          Coin Select List
+      </button>
+      <button
+          style={styles.buttonStyle}
+          onClick={() => manualAddressInputSelector(true)}
+      >
+          Manual Address Input
+      </button>
+      {(shapeShift.manualAddressInput)
+            ? <ShapeShiftReturnAddressForm></ShapeShiftReturnAddressForm>
+            : <div>
+                  <ShapeShiftFromSymbol></ShapeShiftFromSymbol>
+                  <SwipeableViews containerStyle={Object.assign({}, styles.slide, styles.slideContainer, {})}>
+                    <div>
+                      {(
+                        shapeShift.coins.map( coin => {
+                          return (
+                            <Coin
+                              key={coin.name}
+                              onClick={() => handleButtonPush(mnemonic, coin)}
+                              {...coin}
+                              >
+                            </Coin>
+                          )
+                        })
+                      )}
+                    </div>
+                  </SwipeableViews>
+              </div>
+      }
     </div>
   )
 }

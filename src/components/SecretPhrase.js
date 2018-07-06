@@ -18,7 +18,7 @@ export const SecretPhrase = ({...rest}) => {
     <br></br>
     <Mnemonic></Mnemonic>
     <br></br>
-    pass phrase:
+    Enter Your Own:
     <br></br>
     <MnemonicForm></MnemonicForm>
     <br></br>

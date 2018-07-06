@@ -22,7 +22,7 @@ export const Profile = ({ user, ...rest}) => {
           <p>{user.profile.profile.name || user.profile.username}</p>
           <br></br>
           <br></br>
-          (swipe left)
+          (Swipe Left)
       </div>
     </div>
   )

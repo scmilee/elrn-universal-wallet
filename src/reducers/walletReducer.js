@@ -33,7 +33,7 @@ const initialState = {
   mnemonic: '',
   error: null,
   address: '',
-  accountAddressess: [0, 10],
+  accountAddressess: [0],
   accountCount: 0
 }
 
